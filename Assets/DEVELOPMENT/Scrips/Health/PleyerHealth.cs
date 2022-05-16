@@ -12,4 +12,16 @@ public class PleyerHealth : Health
             Debug.Log("Perder");
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EnemyBullet"))
+        {
+            LossHealth(other.GetComponent<Bullet>().damage);
+            Destroy(other.gameObject);
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            LossHealth(other.GetComponentInParent<EnemyMelee>().damage);
+        }
+    }
 }

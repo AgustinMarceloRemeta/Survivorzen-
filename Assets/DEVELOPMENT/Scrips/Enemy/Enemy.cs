@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     public NavMeshAgent Nav;
     protected GameObject Player;
     [SerializeField] float DistanceToPursue, DistanceToStop;
-    public float Cooldown;
+    public float damage;
     protected bool atacking = false;
 
     [Header("Animation")]
@@ -19,6 +19,7 @@ public abstract class Enemy : MonoBehaviour
     [Header("Health")]
     protected EnemyHealth health;
     public bool isAlive =true;
+
 
     public virtual void Start()
     {

@@ -8,7 +8,6 @@ public class EnemyDistance : Enemy
    
     [SerializeField] protected GameObject BulletPref;
     [SerializeField] protected Transform Gun;
-    [SerializeField] protected float damage;
     [SerializeField] protected float ShootImpulse;
 
     protected int animattack;
@@ -18,12 +17,6 @@ public class EnemyDistance : Enemy
         animattack = Animator.StringToHash("Shoot");
         InvokeRepeating("Mov", 0, 0.01f);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public override void Attack()
