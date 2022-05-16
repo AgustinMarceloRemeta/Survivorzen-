@@ -109,6 +109,7 @@ namespace StarterAssets
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
+        public bool shooting;
 
         private bool IsCurrentDeviceMouse
         {
@@ -159,6 +160,7 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
         }
 
         private void LateUpdate()
@@ -213,6 +215,9 @@ namespace StarterAssets
 
         private void Move()
         {
+            if (_input.move.magnitude > 0.5) _input.sprint = true;
+            else _input.sprint = false;
+            
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -253,7 +258,7 @@ namespace StarterAssets
 
             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is a move input rotate player when the player is moving
-            if (_input.move != Vector2.zero)
+            if (_input.move != Vector2.zero && !shooting)
             {
                 _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
                                   _mainCamera.transform.eulerAngles.y;
