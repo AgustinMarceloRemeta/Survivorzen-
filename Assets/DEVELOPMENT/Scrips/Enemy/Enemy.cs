@@ -10,14 +10,17 @@ public abstract class Enemy : MonoBehaviour
     GameObject Player;
     [SerializeField] float DistanceToPursue, DistanceToStop;
     public float Cooldown;
-    protected bool Shoot = true;
+    protected bool atacking = false;
 
-
-
+    [Header("Animation")]
+    protected Animator _animator;
+    protected int animSpeedID;
 
     public virtual void Start()
     {
+        animSpeedID = Animator.StringToHash("Speed");
         Nav = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -28,10 +31,15 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Mov()
     {
-        if (Vector3.Distance(transform.position, Player.transform.position) < DistanceToPursue && Vector3.Distance(transform.position, Player.transform.position) > DistanceToStop)
+        if (Vector3.Distance(transform.position, Player.transform.position) < DistanceToPursue && Vector3.Distance(transform.position, Player.transform.position) > DistanceToStop && !atacking)
         {
             Nav.SetDestination(Player.transform.position);
             transform.LookAt(Player.transform);
+            _animator.SetFloat(animSpeedID, Nav.speed);
+        }
+        else
+        {
+            _animator.SetFloat(animSpeedID, Nav.speed);
         }
 
         if (Vector3.Distance(transform.position, Player.transform.position) < DistanceToStop)
@@ -42,14 +50,6 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void Attack()
-    {
-
-    }
-
-   public virtual IEnumerator Timer(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        Shoot = true;
-    }
+    public abstract void Attack();
+    public abstract void AttackFinish();
 }

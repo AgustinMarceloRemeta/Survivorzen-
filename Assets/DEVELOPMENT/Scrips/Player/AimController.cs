@@ -34,7 +34,7 @@ public class AimController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _animShot = Animator.StringToHash("Shoot");
         _controller = GetComponent<ThirdPersonController>();
-        targetposZ = target.position.z;
+        targetposZ = target.localPosition.z;
     }
 
     void Update() => angleUpdate();
