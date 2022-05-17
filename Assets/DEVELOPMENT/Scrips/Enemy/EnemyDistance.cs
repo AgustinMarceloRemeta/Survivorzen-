@@ -6,32 +6,39 @@ public class EnemyDistance : Enemy
 {
  
    
-    [SerializeField] GameObject BulletPref;
-    [SerializeField] Transform Gun;
+    [SerializeField] protected GameObject BulletPref;
+    [SerializeField] protected Transform Gun;
+    [SerializeField] protected float ShootImpulse;
+
+    protected int animattack;
     public override void Start()
     {
         base.Start();
+        animattack = Animator.StringToHash("Shoot");
         InvokeRepeating("Mov", 0, 0.01f);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public override void Attack()
     {
-        base.Attack();
-        if (Shoot)
-        {
-            Shoot = false;
-            StartCoroutine(Timer(Cooldown));
-            GameObject bullet = Instantiate(BulletPref, Gun.position, Gun.rotation);
-            bullet.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 10, ForceMode.Impulse);
-            Destroy(bullet, 5);
-        }
+        _animator.SetBool(animattack, true);
+        atacking = true;
+    }
+    public void Shoot()
+    {
+        GameObject bullet = Instantiate(BulletPref, Gun.position, Quaternion.identity);
+        Vector3 Direction = Player.transform.position;
+        Direction.y = 1.5f;
+        Direction -= Gun.position;
+        bullet.GetComponent<Rigidbody>().AddRelativeForce(Direction * ShootImpulse, ForceMode.Impulse);
+        bullet.GetComponent<Bullet>().SetDamage(damage);
+        Destroy(bullet, 5);
+    }
+    public override void AttackFinish()
+    {
+        _animator.SetBool(animattack, false);
+        atacking = false;
     }
 
-   
+
 }

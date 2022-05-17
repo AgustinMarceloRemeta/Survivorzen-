@@ -13,6 +13,7 @@ public class AimController : MonoBehaviour
     [Header("Shoot")]
     [SerializeField] private GameObject bulletPref;
     [SerializeField] private float  bulletImpulse = 10f;
+    [SerializeField] private float  damage = 25f;
     private bool canshot = true;
 
     [Header("Input")]
@@ -43,8 +44,7 @@ public class AimController : MonoBehaviour
 
     public void aim()
     {
-        if (!canshot) return;
-        if (fixedJoystick.Direction.magnitude < sensivility) return;
+        if (!canshot || fixedJoystick.Direction.magnitude < sensivility) return;
         if (angle > -100 && angle <= 100) target.localPosition = RotateVector3(target.localPosition);
         else
         {
@@ -81,6 +81,7 @@ public class AimController : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPref, gun.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody>().AddRelativeForce(gun.forward * bulletImpulse, ForceMode.Impulse);
+        bullet.GetComponent<Bullet>().SetDamage(damage);
         Destroy(bullet, 2);
     }
 
