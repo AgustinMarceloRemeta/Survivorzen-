@@ -21,7 +21,7 @@ public class EnemyRunner : EnemyMelee
             {
                 _animator.SetBool(animAlert, true);
 
-                if (alert || Player.GetComponent<StarterAssetsInputs>().sprint)
+                if (alert || Player.GetComponent<StarterAssetsInputs>().sprint || Player.GetComponent<ThirdPersonController>().shooting)
                 {
                     alert = true;
                     _animator.SetBool(animAlert, false);
