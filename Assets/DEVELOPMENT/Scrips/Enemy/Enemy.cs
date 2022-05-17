@@ -8,9 +8,9 @@ public abstract class Enemy : MonoBehaviour
     [Header("Movement")]
     public NavMeshAgent Nav;
     protected GameObject Player;
-    [SerializeField] float DistanceToPursue, DistanceToStop;
+    [SerializeField] protected float DistanceToPursue, DistanceToStop;
     public float damage;
-    protected bool atacking = false;
+    protected bool attacking = false;
 
     [Header("Animation")]
     protected Animator _animator;
@@ -34,7 +34,7 @@ public abstract class Enemy : MonoBehaviour
     public virtual void Mov()
     {
         if (!isAlive) return;
-        if (!atacking && Vector3.Distance(transform.position, Player.transform.position) < DistanceToPursue && Vector3.Distance(transform.position, Player.transform.position) > DistanceToStop )
+        if (!attacking && Vector3.Distance(transform.position, Player.transform.position) < DistanceToPursue && Vector3.Distance(transform.position, Player.transform.position) > DistanceToStop )
         {
             Nav.SetDestination(Player.transform.position);
             transform.LookAt(Player.transform);
