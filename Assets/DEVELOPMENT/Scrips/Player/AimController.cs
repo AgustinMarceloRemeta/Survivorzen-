@@ -15,6 +15,8 @@ public class AimController : MonoBehaviour
     [SerializeField] private float  bulletImpulse = 10f;
     [SerializeField] private float  damage = 25f;
     private bool canshot = true;
+    public bool aiming = true;
+
 
     [Header("Input")]
     [SerializeField] private FixedJoystick fixedJoystick;
@@ -38,7 +40,12 @@ public class AimController : MonoBehaviour
         targetposZ = target.localPosition.z;
     }
 
-    void Update() => angleUpdate();
+    void Update() 
+    {
+        angleUpdate();
+        if (fixedJoystick.Direction.magnitude > sensivility) aiming = true;
+        
+    }
 
     public void angleUpdate() => angle = Vector2.SignedAngle(fixedJoystick.Direction, new Vector2(transform.forward.x, transform.forward.z));
 
@@ -70,7 +77,9 @@ public class AimController : MonoBehaviour
 
     public void shotAnim()
     {
-        if (!canshot) return;
+        bool cancel = aiming && fixedJoystick.Direction.magnitude < sensivility;
+        Debug.Log(cancel);
+        if (!canshot || cancel) return;
         _controller.shooting = true;
         _animator.SetLayerWeight(1, 1f);
         _animator.SetBool(_animShot, true);

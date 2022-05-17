@@ -22,7 +22,7 @@ public class EnemyDistance : Enemy
     public override void Attack()
     {
         _animator.SetBool(animattack, true);
-        atacking = true;
+        attacking = true;
     }
     public void Shoot()
     {
@@ -37,7 +37,7 @@ public class EnemyDistance : Enemy
     public override void AttackFinish()
     {
         _animator.SetBool(animattack, false);
-        atacking = false;
+        attacking = false;
     }
 
 
