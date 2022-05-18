@@ -123,6 +123,7 @@ namespace StarterAssets
             }
         }
 
+        public bool IsAlive = true;
 
         private void Awake()
         {
@@ -135,6 +136,7 @@ namespace StarterAssets
 
         private void Start()
         {
+            IsAlive = true;
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);
@@ -156,7 +158,7 @@ namespace StarterAssets
         private void Update()
         {
             _hasAnimator = TryGetComponent(out _animator);
-
+            if (!IsAlive) return;
             JumpAndGravity();
             GroundedCheck();
             Move();

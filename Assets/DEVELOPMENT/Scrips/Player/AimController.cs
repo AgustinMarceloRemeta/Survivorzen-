@@ -151,6 +151,7 @@ public class AimController : MonoBehaviour
     {
         _animator.SetBool(_animDie, true);
         canshot = false;
+        _controller.IsAlive = false;
     }
 
 }

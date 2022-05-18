@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PleyerHealth : Health
 {
     protected AimController aimController;
+    [SerializeField]protected Slider healthSlider;
 
     protected override void Start()
     {
         base.Start();
         aimController = GetComponent<AimController>();
+        healthSlider.maxValue = MaxHealth;
+        healthSlider.value = MaxHealth;
     }
     public override void LossHealth(float Damage)
     {
         base.LossHealth(Damage);
+        healthSlider.value = ValueHealth;
         if (ValueHealth <= 0)
         {
             aimController.AnimDead();
