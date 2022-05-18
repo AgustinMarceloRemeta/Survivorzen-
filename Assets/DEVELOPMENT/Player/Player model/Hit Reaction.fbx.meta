@@ -1,11 +1,17 @@
 fileFormatVersion: 2
-guid: fe6b39bad4124fa49a9857e6582087e9
+guid: 8eff1bc9760f11d489a06ed8ba4cac1f
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
+      74: 1827226128182048838
+    second: Take 001
+  - first:
       74: -203655887218126122
-    second: firing
+    second: mixamo.com
+  - first:
+      74: -3780516532778130023
+    second: hit Reaction
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,22 +41,22 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: firing
+      name: hit Reaction
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
-      lastFrame: 27
+      firstFrame: 5
+      lastFrame: 69
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -59,15 +65,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.09514563
-        functionName: Shot
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.90000004
-        functionName: FinishShot
+      - time: 0.69750005
+        functionName: AnimHitFinish
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
