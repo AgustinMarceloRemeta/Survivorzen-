@@ -6,6 +6,7 @@ public class EnemyHealth : Health
 {
     protected Enemy enemy;
 
+
     protected override void Start()
     {
         enemy = GetComponent<Enemy>();
@@ -16,8 +17,7 @@ public class EnemyHealth : Health
         base.LossHealth(Damage);
         if (ValueHealth <= 0)
         {
-            enemy.isAlive = false;
-            Destroy(gameObject);
+            enemy.Die();
         }
     }
 }
