@@ -30,12 +30,16 @@ public class AimController : MonoBehaviour
     private AnimationState ShotState;
     private Animator _animator;
     private int _animShot;
+    private int _animHit;
+    private int _animDie;
 
 
     void Start()
     {
         _animator = GetComponent<Animator>();
         _animShot = Animator.StringToHash("Shoot");
+        _animHit = Animator.StringToHash("Hit");
+        _animDie = Animator.StringToHash("Die");
         _controller = GetComponent<ThirdPersonController>();
         targetposZ = target.localPosition.z;
     }
@@ -105,6 +109,24 @@ public class AimController : MonoBehaviour
     public void attackSpeed(float speed)
     {
         ShotState.speed = speed;
+    }
+    public void AnimHit()
+    {
+        _animator.SetLayerWeight(1, 1f);
+        _animator.SetBool(_animHit, true);
+        canshot = false;
+    }
+    public void AnimHitFinish()
+    {
+        _animator.SetLayerWeight(1, 0f);
+        _animator.SetBool(_animHit, false);
+        canshot = true;
+    }
+
+    public void AnimDead()
+    {
+        _animator.SetBool(_animDie, true);
+        canshot = false;
     }
 
 }

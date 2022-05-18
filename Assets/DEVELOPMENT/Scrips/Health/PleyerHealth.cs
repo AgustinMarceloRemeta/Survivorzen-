@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class PleyerHealth : Health
 {
+    protected AimController aimController;
+
+    protected override void Start()
+    {
+        base.Start();
+        aimController = GetComponent<AimController>();
+    }
     public override void LossHealth(float Damage)
     {
         base.LossHealth(Damage);
         if (ValueHealth <= 0)
         {
-            Debug.Log("Perder");
+            aimController.AnimDead();
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -18,10 +25,12 @@ public class PleyerHealth : Health
         {
             LossHealth(other.GetComponent<Bullet>().damage);
             Destroy(other.gameObject);
+            aimController.AnimHit();
         }
         if (other.CompareTag("Enemy"))
         {
             LossHealth(other.GetComponentInParent<EnemyMelee>().damage);
+            aimController.AnimHit();
         }
     }
 }
