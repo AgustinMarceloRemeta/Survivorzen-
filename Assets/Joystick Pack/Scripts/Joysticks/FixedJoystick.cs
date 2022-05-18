@@ -10,15 +10,17 @@ public class FixedJoystick : Joystick, IPointerDownHandler, IDragHandler, IPoint
     protected override void Start()
     {
         aimController = FindObjectOfType<AimController>();
-        lazer = FindObjectOfType<Lazer>();
+        lazer = GameObject.FindGameObjectWithTag("Lazer").GetComponent<Lazer>();
         base.Start();
     }
-    public override void OnDrag(PointerEventData eventData)
+
+
+    private void Update()
     {
-        base.OnDrag(eventData);
         if (Direction.magnitude > aimController.sensivility) lazer.aimLineActivate();
         else lazer.aimLineDeactivate();
     }
+
     public override void OnPointerUp(PointerEventData eventData)
     {
         aimController.aim();

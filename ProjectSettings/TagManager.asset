@@ -9,6 +9,7 @@ TagManager:
   - EnemyBullet
   - Enemy
   - Gun
+  - Lazer
   layers:
   - Default
   - TransparentFX
