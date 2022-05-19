@@ -132,6 +132,7 @@ public class AimController : MonoBehaviour
     }
     public void ReloadAnim()
     {
+        if (_controller.shooting) return;
         _animator.SetLayerWeight(1, 1f);
         _animator.SetBool(_animReload, true);
         canshot = false;
