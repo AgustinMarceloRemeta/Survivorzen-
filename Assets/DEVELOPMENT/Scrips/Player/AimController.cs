@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using StarterAssets;
 using UnityEngine.Animations.Rigging;
 public class AimController : MonoBehaviour
@@ -20,6 +21,8 @@ public class AimController : MonoBehaviour
     [SerializeField] private GameObject OgunActive;
     [SerializeField] public Gun gunActive;
     private int shootMade = 0;
+    private int bullets;
+    [SerializeField] private Text bulletsTx;
 
     private bool canshot = true;
     public bool aiming = true;
@@ -38,10 +41,10 @@ public class AimController : MonoBehaviour
     private int _animShot;
     private int _animFireRate;
     private int _animGun;
+    private int _animReload;
     private int _animHit;
     private int _animDie;
-    //[SerializeField] private TwoBoneIKConstraint lHand;
-    //[SerializeField] private MultiAimConstraint rHand;
+    [SerializeField] private Rig rig;
 
 
     void Start()
@@ -50,6 +53,7 @@ public class AimController : MonoBehaviour
         _animShot = Animator.StringToHash("Shoot");
         _animFireRate = Animator.StringToHash("fireRate");
         _animGun = Animator.StringToHash("Gun");
+        _animReload = Animator.StringToHash("Reload");
         _animHit = Animator.StringToHash("Hit");
         _animDie = Animator.StringToHash("Die");
         _controller = GetComponent<ThirdPersonController>();
@@ -119,9 +123,28 @@ public class AimController : MonoBehaviour
         bulletImpulse = gunActive.fireVelocity;
         damage = gunActive.damage;
         bulletPref = gunActive.bulletPref;
+        bullets = gunActive.magazine;
+        bulletsTx.text = bullets.ToString();
         shootTransforms = gunActive.fireTransforms;
         _animator.SetFloat(_animFireRate, gunActive.fireRate);
+        canshot = true;
         
+    }
+    public void ReloadAnim()
+    {
+        _animator.SetLayerWeight(1, 1f);
+        _animator.SetBool(_animReload, true);
+        canshot = false;
+    }
+    
+    public void Reload()
+    {
+        
+        _animator.SetLayerWeight(1, 0f);
+        _animator.SetBool(_animReload, false);
+        bullets = gunActive.magazine;
+        bulletsTx.text = bullets.ToString();
+        canshot = true;
     }
     public void shotAnim()
     {
@@ -157,17 +180,19 @@ public class AimController : MonoBehaviour
             Destroy(bullet, gunActive.fireDistance / bulletImpulse);
         }
         shootMade++;
+        bullets--;
+        bulletsTx.text = bullets.ToString();
     }
     public void FinishShot()
     {
-        if (gun == 0 && shootMade < gunActive.numberOfShots) return;
+        if (gun == 0 && shootMade < gunActive.numberOfShots && bullets > 0) return;
         _animator.SetBool(_animShot, false);
         _animator.SetLayerWeight(1, 0f);
         target.localPosition = new Vector3(0, target.localPosition.y, targetposZ);
         canshot = true;
         _controller.shooting = false;
         shootMade = 0;
-
+        if (bullets == 0) canshot = false;
         
     }
     public void AnimHit()
