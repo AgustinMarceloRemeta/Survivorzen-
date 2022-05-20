@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nav: {fileID: 0}
-  DistanceToPursue: 10
+  DistanceToPursue: 7
   DistanceToStop: 1
   damage: 20
   isAlive: 1
@@ -138,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e96251cc71d16bb40ba0ea6118c66eee, type: 3}
       propertyPath: m_Name
-      value: lpMale_zombie_A
+      value: Zombie Melee 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e96251cc71d16bb40ba0ea6118c66eee, type: 3}
       propertyPath: m_IsActive

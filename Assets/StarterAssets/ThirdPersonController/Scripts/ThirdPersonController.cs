@@ -123,6 +123,7 @@ namespace StarterAssets
             }
         }
 
+        public bool IsAlive = true;
 
         private void Awake()
         {
@@ -135,6 +136,7 @@ namespace StarterAssets
 
         private void Start()
         {
+            IsAlive = true;
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);
@@ -156,7 +158,7 @@ namespace StarterAssets
         private void Update()
         {
             _hasAnimator = TryGetComponent(out _animator);
-
+            if (!IsAlive) return;
             JumpAndGravity();
             GroundedCheck();
             Move();
@@ -269,8 +271,8 @@ namespace StarterAssets
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
-
-            Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+            
+            Vector3 targetDirection = (!shooting) ? Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward : inputDirection ;
 
             // move the player
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +

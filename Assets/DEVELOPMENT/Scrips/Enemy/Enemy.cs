@@ -8,13 +8,15 @@ public abstract class Enemy : MonoBehaviour
     [Header("Movement")]
     public NavMeshAgent Nav;
     protected GameObject Player;
-    [SerializeField] float DistanceToPursue, DistanceToStop;
+    [SerializeField] protected float DistanceToPursue, DistanceToStop;
     public float damage;
-    protected bool atacking = false;
+    protected bool attacking = false;
 
     [Header("Animation")]
     protected Animator _animator;
     protected int animSpeedID;
+    protected int animhit;
+    protected int animDead;
 
     [Header("Health")]
     protected EnemyHealth health;
@@ -23,10 +25,12 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Start()
     {
+        _animator = GetComponent<Animator>();
         animSpeedID = Animator.StringToHash("Speed");
+        animhit = Animator.StringToHash("hit");
+        animDead = Animator.StringToHash("Dead");
         Nav = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
-        _animator = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player");
         
     }
@@ -34,7 +38,7 @@ public abstract class Enemy : MonoBehaviour
     public virtual void Mov()
     {
         if (!isAlive) return;
-        if (!atacking && Vector3.Distance(transform.position, Player.transform.position) < DistanceToPursue && Vector3.Distance(transform.position, Player.transform.position) > DistanceToStop )
+        if (!attacking && Vector3.Distance(transform.position, Player.transform.position) < DistanceToPursue && Vector3.Distance(transform.position, Player.transform.position) > DistanceToStop )
         {
             Nav.SetDestination(Player.transform.position);
             transform.LookAt(Player.transform);
@@ -61,7 +65,26 @@ public abstract class Enemy : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             health.LossHealth(other.GetComponent<Bullet>().damage);
+            _animator.SetLayerWeight(1, 1f);
+            _animator.SetBool(animhit, true);
             Destroy(other.gameObject);
         }
+    }
+    public virtual void HitAnimFinish()
+    {
+        _animator.SetBool(animhit, false);
+        _animator.SetLayerWeight(1, 0);
+    }
+
+    public virtual void Die()
+    {
+        _animator.SetBool(animDead, true);
+        _animator.SetFloat(animSpeedID, 0);
+        Nav.SetDestination(transform.position);
+        isAlive = false;
+    }
+    public virtual void AnimDeathFinish()
+    {
+        Destroy(gameObject);
     }
 }

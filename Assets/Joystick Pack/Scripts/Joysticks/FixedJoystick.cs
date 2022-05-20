@@ -23,6 +23,7 @@ public class FixedJoystick : Joystick, IPointerDownHandler, IDragHandler, IPoint
     {
         aimController.aim();
         aimController.shotAnim();
+        aimController.aiming = false;
         lazer.aimLineDeactivate();
         base.OnPointerUp(eventData);
     }

@@ -14,16 +14,11 @@ public class EnemyMelee : Enemy
         weapon.enabled = false;
     }
 
-  
-    void Update()
-    {
-        
-    }
 
     public override void Attack()
     {
         _animator.SetBool(animattack, true);
-        atacking = true;
+        attacking = true;
     }
     public void ColliderActive()
     {
@@ -32,7 +27,7 @@ public class EnemyMelee : Enemy
     public override void AttackFinish()
     {
         _animator.SetBool(animattack, false);
-        atacking = false;
+        attacking = false;
         weapon.enabled = false;
     }
 }
