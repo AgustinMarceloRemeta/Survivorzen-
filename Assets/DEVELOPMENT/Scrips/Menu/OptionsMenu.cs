@@ -33,6 +33,12 @@ public class OptionsMenu : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+    public void pauseBtn()
+    {
+        Time.timeScale = 0;
+    }
+
+
     //Aim Assist
 
     public void AimAssist(int i)
