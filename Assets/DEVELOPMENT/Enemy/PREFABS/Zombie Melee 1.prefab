@@ -141,6 +141,10 @@ PrefabInstance:
       value: Zombie Melee 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e96251cc71d16bb40ba0ea6118c66eee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e96251cc71d16bb40ba0ea6118c66eee, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}

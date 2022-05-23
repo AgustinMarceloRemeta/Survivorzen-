@@ -48,6 +48,11 @@ public class Lazer : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, lazerDistance) && hit.collider)
         {
             lr.SetPosition(1, hit.point);
+            if (PlayerPrefs.GetInt("ShootAssist", 0) == 2 && hit.collider.CompareTag("Enemy"))
+            {
+                Ac.aim();
+                Ac.shotAnim();
+            }
         }
         else lr.SetPosition(1, transform.forward * lazerDistance + transform.position);
         aiming = true;
