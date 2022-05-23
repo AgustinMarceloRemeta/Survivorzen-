@@ -27,6 +27,8 @@ public class AimController : MonoBehaviour
     private bool canshot = true;
     public bool aiming = true;
 
+    [SerializeField] private LayerMask EnemyLayer;
+
 
     [Header("Input")]
     [SerializeField] private FixedJoystick fixedJoystick;
@@ -84,17 +86,50 @@ public class AimController : MonoBehaviour
 
     public void aim()
     {
-        if (!canshot || fixedJoystick.Direction.magnitude < sensivility) return;
-        if (angle > -100 && angle <= 100) target.localPosition = RotateVector3(target.localPosition);
-        else
+        if (!canshot || (fixedJoystick.Direction.magnitude < sensivility && PlayerPrefs.GetInt("AimAssist", 0) == 0)) return;
+
+        if (PlayerPrefs.GetInt("AimAssist", 0) == 0 || fixedJoystick.Direction.magnitude > sensivility)
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y - 180, transform.rotation.eulerAngles.z);
-            angleUpdate();
-            target.localPosition = RotateVector3(target.localPosition);
+            if (angle > -100 && angle <= 100) target.localPosition = RotateVector3(target.localPosition,angle);
+            else
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y - 180, transform.rotation.eulerAngles.z);
+                angleUpdate();
+                target.localPosition = RotateVector3(target.localPosition,angle);
+            }
         }
+        else if (fixedJoystick.Direction.magnitude < sensivility && PlayerPrefs.GetInt("AimAssist", 0) == 1)
+        {
+            Collider[] colliderArray = Physics.OverlapSphere(transform.position, gunActive.fireDistance, EnemyLayer);
+            
+            if (colliderArray.Length == 0) return;
+            float minDistance = 0;
+            int enemytarget = 0;
+            for (int i = 0; i < colliderArray.Length; i++)
+            {
+                float enemyDistance = Vector3.Distance(transform.position, colliderArray[i].transform.position);
+                if (enemyDistance < minDistance)
+                {
+                    minDistance = enemyDistance;
+                    enemytarget = i;
+                }
+            }
+            Vector3 targetDirection = colliderArray[enemytarget].transform.position - transform.position;
+            float assistAngle = Vector2.SignedAngle(new Vector2(targetDirection.x, targetDirection.z), new Vector2(transform.forward.x, transform.forward.z));
+            Debug.Log(assistAngle);
+            if (assistAngle > -100 && assistAngle <= 100) target.localPosition = RotateVector3(target.localPosition,assistAngle);
+            else
+            {
+                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y - 180, transform.rotation.eulerAngles.z);
+                assistAngle = Vector2.SignedAngle(new Vector2(targetDirection.x, targetDirection.z), new Vector2(transform.forward.x, transform.forward.z));
+                target.localPosition = RotateVector3(target.localPosition,assistAngle);
+            }
+        }
+
+        
     }
 
-    private Vector3 RotateVector3(Vector3 vector)
+    private Vector3 RotateVector3(Vector3 vector, float angle)
     {
         Vector3 v = new Vector3();
         v.x = vector.x * Mathf.Cos(-angle * Mathf.Deg2Rad) - vector.z * Mathf.Sin(-angle * Mathf.Deg2Rad);
