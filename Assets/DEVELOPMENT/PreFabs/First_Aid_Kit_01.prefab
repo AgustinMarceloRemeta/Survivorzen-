@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6475512}
   - component: {fileID: 2764683107953586970}
   - component: {fileID: 1310179550380271373}
-  - component: {fileID: 7632051195806821545}
+  - component: {fileID: 3881693022769625543}
   m_Layer: 0
   m_Name: First_Aid_Kit_01
   m_TagString: Untagged
@@ -108,7 +108,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139600}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.4857902, y: 0.4066615, z: 0.19960426}
@@ -129,7 +129,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7632051195806821545
+--- !u!114 &3881693022769625543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,22 +138,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 139600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531f8a91c16ac7941b3b7f800c1785dc, type: 3}
+  m_Script: {fileID: 11500000, guid: b193c94f149284747937bbd83f8a7a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: primeros auxilios
-  description: 
-  prefab: {fileID: 139600}
-  stackable: 1
-  recogible: 1
-  inMano: 0
-  posicionMano: {x: 0.024549872, y: -0.42885756, z: 0.10418641}
-  rotacionMano: {x: -0.104304895, y: -0.6650702, z: 0.112177595, w: 0.73090243}
-  IsArma: 0
-  AttackArea: {fileID: 0}
-  damage: 0
-  icon: {fileID: 7761097824440333545}
-  uso: primerosauxilios
+  heal: -50
 --- !u!1 &2211354882146706257
 GameObject:
   m_ObjectHideFlags: 0

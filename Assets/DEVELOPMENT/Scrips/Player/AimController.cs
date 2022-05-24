@@ -196,11 +196,13 @@ public class AimController : MonoBehaviour
     //animation events
     public void Shot()
     {
+        Vector2 tempdirection = new Vector2(target.position.x - transform.position.x, target.position.z - transform.position.z);
+        float bulletangle = Vector2.SignedAngle(tempdirection,Vector2.up);
         if (gun == 1)
         {
             for (int i = 0; i < gunActive.numberOfShots; i++)
             {
-                GameObject bullet = Instantiate(bulletPref, shootTransforms[i].position, Quaternion.identity);
+                GameObject bullet = Instantiate(bulletPref, shootTransforms[i].position, Quaternion.Euler(90, bulletangle, 0));
                 //bullet.GetComponent<Rigidbody>().AddRelativeForce(shootTransform.forward * bulletImpulse, ForceMode.Impulse);
                 bullet.GetComponent<Rigidbody>().velocity = shootTransforms[i].forward * bulletImpulse;
                 bullet.GetComponent<Bullet>().SetDamage(damage);
@@ -209,7 +211,7 @@ public class AimController : MonoBehaviour
         }
         else
         {
-            GameObject bullet = Instantiate(bulletPref, shootTransforms[0].position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPref, shootTransforms[0].position, Quaternion.Euler(90, bulletangle, 0));
             //bullet.GetComponent<Rigidbody>().AddRelativeForce(shootTransform.forward * bulletImpulse, ForceMode.Impulse);
             bullet.GetComponent<Rigidbody>().velocity = shootTransforms[0].forward * bulletImpulse;
             bullet.GetComponent<Bullet>().SetDamage(damage);

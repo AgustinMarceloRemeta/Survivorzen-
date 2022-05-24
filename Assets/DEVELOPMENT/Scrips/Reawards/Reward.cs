@@ -10,4 +10,13 @@ public class Reward : MonoBehaviour
     {
         Money = Random.Range(Min, Max);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            FindObjectOfType<GameManager>().UpScore(Money);
+            Destroy(gameObject);
+        }
+        
+    }
 }

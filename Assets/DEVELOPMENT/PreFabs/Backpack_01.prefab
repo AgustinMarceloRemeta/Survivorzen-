@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3320054}
   - component: {fileID: 2318016}
   - component: {fileID: 6452234}
+  - component: {fileID: 2778435398158230115}
   m_Layer: 0
   m_Name: Backpack_01
   m_TagString: Untagged
@@ -91,9 +92,24 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155886}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6d8a088c851ebbd479d582f10fa23665, type: 3}
+--- !u!114 &2778435398158230115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f2cff6e61ef044497f409d2edfc8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Money: 0
+  Min: 500
+  Max: 1000
