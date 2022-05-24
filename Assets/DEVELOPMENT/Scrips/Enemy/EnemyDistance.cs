@@ -28,8 +28,9 @@ public class EnemyDistance : Enemy
     {
         GameObject bullet = Instantiate(BulletPref, Gun.position, Quaternion.identity);
         Vector3 Direction = Player.transform.position;
-        Direction.y = 1.5f;
+        
         Direction -= Gun.position;
+        Direction.y = 0f;
         bullet.GetComponent<Rigidbody>().AddRelativeForce(Direction * ShootImpulse, ForceMode.Impulse);
         bullet.GetComponent<Bullet>().SetDamage(damage);
         Destroy(bullet, 5);

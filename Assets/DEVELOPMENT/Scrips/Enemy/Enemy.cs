@@ -31,7 +31,7 @@ public abstract class Enemy : MonoBehaviour
         animDead = Animator.StringToHash("Dead");
         Nav = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = FindObjectOfType<PleyerHealth>().gameObject;
         
     }
 
