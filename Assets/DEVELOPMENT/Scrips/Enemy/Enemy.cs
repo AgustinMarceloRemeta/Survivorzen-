@@ -82,6 +82,7 @@ public abstract class Enemy : MonoBehaviour
         _animator.SetFloat(animSpeedID, 0);
         Nav.SetDestination(transform.position);
         isAlive = false;
+        GetComponent<Collider>().enabled = false;
     }
     public virtual void AnimDeathFinish()
     {
