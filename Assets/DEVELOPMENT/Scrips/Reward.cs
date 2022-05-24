@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Reward : MonoBehaviour
 {
-    [SerializeField] int score;
-
+    public int Money;
+    [SerializeField] int Min, Max;
+    private void Start()    
+    {
+        Money = Random.Range(Min, Max);
+    }
 }
