@@ -83,6 +83,7 @@ public abstract class Enemy : MonoBehaviour
         Nav.SetDestination(transform.position);
         isAlive = false;
         GetComponent<Collider>().enabled = false;
+        AttackFinish();
     }
     public virtual void AnimDeathFinish()
     {
