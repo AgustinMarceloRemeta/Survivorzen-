@@ -61,7 +61,7 @@ public class Store : MonoBehaviour
             case 0:
 
                 if (Sliders[Id+3].value >= 3) return;
-                Sliders[Id+3].value++;
+                Sliders[Id+3].value=+1;
                 int i1 = Id + 3;
                 PlayerPrefs.SetFloat("Slider" + i1, Sliders[Id+3].value);
                 Rifle.rechargerTimºe += 0.5f;
@@ -151,12 +151,12 @@ public class Store : MonoBehaviour
     {
         Rifle.damage = PlayerPrefs.GetFloat("DamageRifle", Rifle.damage);
         Shotgun.damage = PlayerPrefs.GetFloat("DamageShotgun", Shotgun.damage);
-     //   Sniper.damage = PlayerPrefs.GetFloat("DamageSniper", Sniper.damage);
+        Sniper.damage = PlayerPrefs.GetFloat("DamageSniper", Sniper.damage);
         Rifle.rechargerTimºe = PlayerPrefs.GetFloat("ReloadRifle", Rifle.rechargerTimºe);
         Shotgun.rechargerTimºe = PlayerPrefs.GetFloat("ReloadShotgun", Shotgun.rechargerTimºe);
-        //Sniper.rechargerTimºe = PlayerPrefs.GetFloat("ReloadSniper", Sniper.rechargerTimºe);
+        Sniper.rechargerTimºe = PlayerPrefs.GetFloat("ReloadSniper", Sniper.rechargerTimºe);
         Rifle.numberOfShots = PlayerPrefs.GetInt("SpecialRifle", Rifle.numberOfShots);
         Shotgun.numberOfShots = PlayerPrefs.GetInt("SpecialShotgun", Shotgun.numberOfShots);
-       // Sniper.magazine = PlayerPrefs.GetInt("SpecialSniper", Sniper.magazine);
+        Sniper.magazine = PlayerPrefs.GetInt("SpecialSniper", Sniper.magazine);
     }
 }
