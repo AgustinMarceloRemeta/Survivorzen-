@@ -67,7 +67,7 @@ MonoBehaviour:
   DistanceToStop: 5
   damage: 10
   isAlive: 1
-  BulletPref: {fileID: 1145177995732085937, guid: 153ceef9c9bd6b648bea1fb739fdb8b1, type: 3}
+  BulletPref: {fileID: 110074, guid: 6eb29af9fa551554c8ca757f8f3f2330, type: 3}
   Gun: {fileID: 932919084218950188}
   ShootImpulse: 2
 --- !u!1001 &1821815234463481829

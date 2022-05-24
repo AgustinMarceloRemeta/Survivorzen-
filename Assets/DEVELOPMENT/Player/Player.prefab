@@ -543,11 +543,11 @@ MonoBehaviour:
   - {fileID: 2895427939356975211}
   numberOfShots: 1
   fireDistance: 10
-  fireVelocity: 10
+  fireVelocity: 25
   fireRate: 1
   magazine: 10
   rechargerTime: 1
-  bulletPref: {fileID: 194079936619715303, guid: 188967427a9c9be47bdc4a53a1e149a1, type: 3}
+  bulletPref: {fileID: 179290, guid: bfe954ca1cb62b14396508c472d73319, type: 3}
 --- !u!1 &2895427938194329651
 GameObject:
   m_ObjectHideFlags: 0
