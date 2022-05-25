@@ -13,5 +13,4 @@ public class Gun : MonoBehaviour
     public int magazine;
     public float rechargerTimºe;
     public GameObject bulletPref;
-
 }
