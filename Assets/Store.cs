@@ -19,6 +19,7 @@ public class Store : MonoBehaviour
         LoadSliders();
         LoadGuns();
         StartSlider();
+        AsignPrice();
         AsignText();
     }
 
@@ -36,6 +37,9 @@ public class Store : MonoBehaviour
                     PlayerPrefs.SetFloat("DamageRifle", PlayerPrefs.GetFloat("DamageRifle", Rifle.damage));
                     Manager.DownScore(Price[Id]);
                     Manager.UpdateScoreUI();
+                    Price[Id] = Price[Id] * 2;
+                    AsignText();
+
                 }
 
 
@@ -51,6 +55,8 @@ public class Store : MonoBehaviour
                     PlayerPrefs.SetFloat("DamageShotgun", PlayerPrefs.GetFloat("DamageShotgun", Shotgun.damage));
                     Manager.DownScore(Price[Id]);
                     Manager.UpdateScoreUI();
+                    Price[Id] = Price[Id] * 2;
+                    AsignText();
                 }
                 break;
             case 2:
@@ -63,6 +69,8 @@ public class Store : MonoBehaviour
                     PlayerPrefs.SetFloat("DamageSniper", PlayerPrefs.GetFloat("DamageSniper", Sniper.damage));
                     Manager.DownScore(Price[Id]);
                     Manager.UpdateScoreUI();
+                    Price[Id] = Price[Id] * 2;
+                    AsignText();
                 }
                 break;
             default:
@@ -86,6 +94,8 @@ public class Store : MonoBehaviour
                     PlayerPrefs.SetFloat("ReloadRifle", PlayerPrefs.GetFloat("ReloadRifle", Rifle.rechargerTimºe));
                     Manager.DownScore(Price[Id+3]);
                     Manager.UpdateScoreUI();
+                    Price[Id + 3] = Price[Id + 3] * 2;
+                    AsignText();
                 }
                 break;
 
@@ -100,6 +110,8 @@ public class Store : MonoBehaviour
                     PlayerPrefs.SetFloat("ReloadShotgun", PlayerPrefs.GetFloat("ReloadShotgun", Shotgun.rechargerTimºe));
                     Manager.DownScore(Price[Id + 3]);
                     Manager.UpdateScoreUI();
+                    Price[Id + 3] = Price[Id + 3] * 2;
+                    AsignText();
                 }
                 break;
 
@@ -114,6 +126,8 @@ public class Store : MonoBehaviour
                     PlayerPrefs.SetFloat("ReloadSniper", PlayerPrefs.GetFloat("ReloadSniper", Sniper.rechargerTimºe));
                     Manager.DownScore(Price[Id + 3]);
                     Manager.UpdateScoreUI();
+                    Price[Id + 3] = Price[Id + 3] * 2;
+                    AsignText();
                 }
                 break;
 
@@ -138,6 +152,8 @@ public class Store : MonoBehaviour
                     PlayerPrefs.SetInt("SpecialRifle", PlayerPrefs.GetInt("SpecialRifle", Rifle.numberOfShots));
                     Manager.DownScore(Price[Id + 6]);
                     Manager.UpdateScoreUI();
+                    Price[Id + 6] = Price[Id + 6] * 2;
+                    AsignText();
                 }
                 break;
 
@@ -153,6 +169,8 @@ public class Store : MonoBehaviour
                     PlayerPrefs.SetInt("SpecialShotgun", PlayerPrefs.GetInt("SpecialShotgun", Shotgun.numberOfShots));
                     Manager.DownScore(Price[Id + 6]);
                     Manager.UpdateScoreUI();
+                    Price[Id + 6] = Price[Id + 6] * 2;
+                    AsignText();
                 }
                 break;
             case 2:
@@ -166,6 +184,8 @@ public class Store : MonoBehaviour
                     PlayerPrefs.SetInt("SpecialSniper", PlayerPrefs.GetInt("SpecialSniper", Sniper.magazine));
                     Manager.DownScore(Price[Id + 6]);
                     Manager.UpdateScoreUI();
+                    Price[Id + 6] = Price[Id + 6] * 2;
+                    AsignText();
                 }
                 break;
             default:
@@ -207,7 +227,28 @@ public class Store : MonoBehaviour
     {
         for (int i = 0; i < Price.Length; i++)
         {
-            TextPrice[i].text = Price[i].ToString();
+            if (Sliders[i].value >= 3) TextPrice[i].text = "Full";            
+            else TextPrice[i].text = Price[i].ToString();
+        }
+    }
+    void AsignPrice()
+    {
+        for (int i = 0; i < Price.Length; i++)
+        {
+            switch (Sliders[i].value)
+            {
+                case 1: 
+                    break;
+
+                case 2: Price[i] = Price[i] * 2;
+                    break;
+
+                case 3: TextPrice[i].text = "Full";
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }
