@@ -42,7 +42,7 @@ public abstract class Enemy : MonoBehaviour
         {
             Nav.SetDestination(Player.transform.position);
             transform.LookAt(Player.transform);
-            _animator.SetFloat(animSpeedID, Nav.speed);
+            if (_animator.GetFloat(animSpeedID) == 0) _animator.SetFloat(animSpeedID, Nav.speed);
         }
         else
         {
@@ -64,10 +64,11 @@ public abstract class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            health.LossHealth(other.GetComponent<Bullet>().damage);
+            Bullet bullet = other.GetComponent<Bullet>();
+            health.LossHealth(bullet.damage);
             _animator.SetLayerWeight(1, 1f);
             _animator.SetBool(animhit, true);
-            Destroy(other.gameObject);
+            if(!bullet.sniper) Destroy(other.gameObject);
         }
     }
     public virtual void HitAnimFinish()
@@ -78,15 +79,17 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Die()
     {
+        AttackFinish();
         _animator.SetBool(animDead, true);
         _animator.SetFloat(animSpeedID, 0);
         Nav.SetDestination(transform.position);
         isAlive = false;
         GetComponent<Collider>().enabled = false;
-        AttackFinish();
+        
     }
     public virtual void AnimDeathFinish()
     {
         Destroy(gameObject);
     }
+
 }

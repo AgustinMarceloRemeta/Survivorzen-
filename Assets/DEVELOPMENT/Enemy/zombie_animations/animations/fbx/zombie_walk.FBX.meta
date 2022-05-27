@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Take 001
+    second: Zombie walking
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Zombie walking
       takeName: Take 001
       internalID: 0
       firstFrame: 0
@@ -56,11 +56,89 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      bodyMask: 01000000010000000000000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bip
+        weight: 1
+      - path: bip/bip Pelvis
+        weight: 1
+      - path: bip/bip Pelvis/bip L Thigh
+        weight: 1
+      - path: bip/bip Pelvis/bip L Thigh/bip L Calf
+        weight: 1
+      - path: bip/bip Pelvis/bip L Thigh/bip L Calf/bip L Foot
+        weight: 1
+      - path: bip/bip Pelvis/bip L Thigh/bip L Calf/bip L Foot/bip L Toe0
+        weight: 1
+      - path: bip/bip Pelvis/bip R Thigh
+        weight: 1
+      - path: bip/bip Pelvis/bip R Thigh/bip R Calf
+        weight: 1
+      - path: bip/bip Pelvis/bip R Thigh/bip R Calf/bip R Foot
+        weight: 1
+      - path: bip/bip Pelvis/bip R Thigh/bip R Calf/bip R Foot/bip R Toe0
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip L Clavicle
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip L Clavicle/bip L UpperArm
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip L Clavicle/bip L UpperArm/bip
+          L Forearm
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip L Clavicle/bip L UpperArm/bip
+          L Forearm/bip L Hand
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip L Clavicle/bip L UpperArm/bip
+          L Forearm/bip L Hand/bip L Finger0
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip L Clavicle/bip L UpperArm/bip
+          L Forearm/bip L Hand/bip L Finger0/bip L Finger01
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip L Clavicle/bip L UpperArm/bip
+          L Forearm/bip L Hand/bip L Finger1
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip L Clavicle/bip L UpperArm/bip
+          L Forearm/bip L Hand/bip L Finger1/bip L Finger11
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip Neck
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip Neck/bip Head
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip Neck/bip Head/bip jaw
+        weight: 0
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip R Clavicle
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip R Clavicle/bip R UpperArm
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip R Clavicle/bip R UpperArm/bip
+          R Forearm
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip R Clavicle/bip R UpperArm/bip
+          R Forearm/bip R Hand
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip R Clavicle/bip R UpperArm/bip
+          R Forearm/bip R Hand/bip R Finger0
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip R Clavicle/bip R UpperArm/bip
+          R Forearm/bip R Hand/bip R Finger0/bip R Finger01
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip R Clavicle/bip R UpperArm/bip
+          R Forearm/bip R Hand/bip R Finger1
+        weight: 1
+      - path: bip/bip Pelvis/bip Spine/bip Spine1/bip R Clavicle/bip R UpperArm/bip
+          R Forearm/bip R Hand/bip R Finger1/bip R Finger11
+        weight: 1
+      - path: lpMale_zombie_A
+        weight: 0
+      maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     isReadable: 0

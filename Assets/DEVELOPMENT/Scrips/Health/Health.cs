@@ -15,5 +15,6 @@ public abstract class  Health : MonoBehaviour
     public virtual void LossHealth(float Damage)
     {
         ValueHealth -= Damage;
+        if (ValueHealth > MaxHealth) ValueHealth = MaxHealth;
     }
 }

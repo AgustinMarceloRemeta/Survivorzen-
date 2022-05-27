@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage;
+    public bool sniper;
 
     public void SetDamage(float damage)
     {

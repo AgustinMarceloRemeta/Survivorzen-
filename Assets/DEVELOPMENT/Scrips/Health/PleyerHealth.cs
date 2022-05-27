@@ -7,9 +7,11 @@ public class PleyerHealth : Health
 {
     protected AimController aimController;
     [SerializeField]protected Slider healthSlider;
+    public bool canRecibeDamage;
 
     protected override void Start()
     {
+        canRecibeDamage = true;
         base.Start();
         aimController = GetComponent<AimController>();
         healthSlider.maxValue = MaxHealth;
@@ -17,12 +19,15 @@ public class PleyerHealth : Health
     }
     public override void LossHealth(float Damage)
     {
+        if (!canRecibeDamage) return;
         base.LossHealth(Damage);
+        Debug.Log(Damage);
         healthSlider.value = ValueHealth;
         if (ValueHealth <= 0)
         {
             aimController.AnimDead();
         }
+        canRecibeDamage = false;
     }
     private void OnTriggerEnter(Collider other)
     {

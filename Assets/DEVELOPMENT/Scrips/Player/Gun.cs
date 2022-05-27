@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     public float fireVelocity;
     public float fireRate = 1f;
     public int magazine;
+    public int bullets;
     public float rechargerTimºe;
     public GameObject bulletPref;
 }
