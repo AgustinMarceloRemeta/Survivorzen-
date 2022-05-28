@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI moneyTxt;
+    [SerializeField] Animator Transition;
 
     void Start()
     {
@@ -16,7 +18,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-
+        
     }
     #region Score
     public void UpScore(float NewScore) // llamar desde el jugador
@@ -40,4 +42,13 @@ public class GameManager : MonoBehaviour
         moneyTxt.text = PlayerPrefs.GetFloat("Money", 0).ToString();
     }
     #endregion
+
+    public void ChangeLevel()
+    {
+        Transition.SetBool("End", true);
+    }
+    public void ToMenu()
+    {
+        Transition.SetBool("Dead", true);
+    }
 }
