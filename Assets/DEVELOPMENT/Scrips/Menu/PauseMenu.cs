@@ -13,14 +13,14 @@ public class PauseMenu : MonoBehaviour
         Vector3 camPos = cameraT.position;
         camPos.x += 3.5f;
         cameraT.position = camPos;
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
     }
     public void pauseBtn()
     {
         Vector3 camPos = cameraT.position;
         camPos.x -= 3.5f;
         cameraT.position = camPos;
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
     }
     public void exit()
     {
