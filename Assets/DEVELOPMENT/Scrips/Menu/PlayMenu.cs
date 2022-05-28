@@ -20,6 +20,7 @@ public class PlayMenu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         ResetPlayerPrefs();
+        
         //PlayerPrefs.DeleteAll();
     }
 

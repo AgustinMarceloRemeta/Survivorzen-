@@ -11,6 +11,7 @@ public class OptionsMenu : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(PlayerPrefs.GetInt("AimAssist", 0));
         volume.value = PlayerPrefs.GetFloat("vol", 1);
         AudioListener.volume = volume.value;
         AAbtns[PlayerPrefs.GetInt("AimAssist", 0)].interactable = false;
@@ -28,6 +29,7 @@ public class OptionsMenu : MonoBehaviour
     {
         AudioListener.volume = volume.value;
         PlayerPrefs.SetFloat("vol", volume.value);
+        PlayerPrefs.Save();
     }
 
 
@@ -37,10 +39,13 @@ public class OptionsMenu : MonoBehaviour
     public void AimAssist(int i)
     {
         PlayerPrefs.SetInt("AimAssist", i);
+        PlayerPrefs.Save();
+        Debug.Log(PlayerPrefs.GetInt("AimAssist", 0));
     }   
     public void ShotAssist(int i)
     {
         PlayerPrefs.SetInt("ShootAssist", i);
+        PlayerPrefs.Save();
     }
     
 }

@@ -48,5 +48,6 @@ public class PleyerHealth : Health
     public void SaveHealth()
     {
         PlayerPrefs.SetFloat("PleyerHealth", ValueHealth);
+        PlayerPrefs.Save();
     }
 }

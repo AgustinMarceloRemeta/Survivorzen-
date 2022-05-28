@@ -146,6 +146,7 @@ public class AimController : MonoBehaviour
     public void ChangeGun(int gun)
     {
         PlayerPrefs.SetInt("gun" + this.gun + "bullets", gunActive.bullets);
+        PlayerPrefs.Save();
         _animator.SetInteger(_animGun, gun);
         OgunActive.SetActive(false);
         OgunActive = guns[gun];
