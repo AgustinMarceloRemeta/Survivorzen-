@@ -14,8 +14,10 @@ public class PleyerHealth : Health
         canRecibeDamage = true;
         base.Start();
         aimController = GetComponent<AimController>();
+        ValueHealth = PlayerPrefs.GetFloat("PleyerHealth", MaxHealth);
         healthSlider.maxValue = MaxHealth;
-        healthSlider.value = MaxHealth;
+        healthSlider.value = ValueHealth;
+        
     }
     public override void LossHealth(float Damage)
     {
@@ -42,5 +44,9 @@ public class PleyerHealth : Health
             LossHealth(other.GetComponentInParent<EnemyMelee>().damage);
             aimController.AnimHit();
         }
+    }
+    public void SaveHealth()
+    {
+        PlayerPrefs.SetFloat("PleyerHealth", ValueHealth);
     }
 }
