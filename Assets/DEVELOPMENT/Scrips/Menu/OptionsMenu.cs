@@ -29,14 +29,7 @@ public class OptionsMenu : MonoBehaviour
         AudioListener.volume = volume.value;
         PlayerPrefs.SetFloat("vol", volume.value);
     }
-    public void resumeBtn()
-    {
-        Time.timeScale = 1;
-    }
-    public void pauseBtn()
-    {
-        Time.timeScale = 0;
-    }
+
 
 
     //Aim Assist
