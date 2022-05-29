@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2764683107953586970}
   - component: {fileID: 1310179550380271373}
   - component: {fileID: 3881693022769625543}
+  - component: {fileID: 1231274967633902468}
   m_Layer: 0
   m_Name: First_Aid_Kit_01
   m_TagString: Untagged
@@ -127,7 +128,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &3881693022769625543
 MonoBehaviour:
@@ -142,6 +143,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heal: -50
+--- !u!114 &1231274967633902468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105e452b082c04d4a80cc05873f1d942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawners: []
 --- !u!1 &2211354882146706257
 GameObject:
   m_ObjectHideFlags: 0
