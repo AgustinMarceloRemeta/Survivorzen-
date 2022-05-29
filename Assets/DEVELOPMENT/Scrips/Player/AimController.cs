@@ -173,6 +173,8 @@ public class AimController : MonoBehaviour
         if (_controller.shooting) return;
         _animator.SetLayerWeight(1, 1f);
         _animator.SetBool(_animReload, true);
+        gunActive.AudioSource.clip = gunActive.reloadClip;
+        gunActive.AudioSource.Play();
         canshot = false;
     }
     
@@ -181,6 +183,7 @@ public class AimController : MonoBehaviour
         
         _animator.SetLayerWeight(1, 0f);
         _animator.SetBool(_animReload, false);
+
         gunActive.bullets = gunActive.magazine;
         bulletsTx.text = gunActive.bullets.ToString();
         canshot = true;
@@ -220,6 +223,8 @@ public class AimController : MonoBehaviour
             bullet.GetComponent<Bullet>().SetDamage(damage);
             Destroy(bullet, gunActive.fireDistance / bulletImpulse);
         }
+        gunActive.AudioSource.clip = gunActive.shootClip;
+        gunActive.AudioSource.Play();
         shootMade++;
         gunActive.bullets--;
         bulletsTx.text = gunActive.bullets.ToString();

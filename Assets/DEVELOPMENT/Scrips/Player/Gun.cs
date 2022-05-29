@@ -14,4 +14,7 @@ public class Gun : MonoBehaviour
     public int bullets;
     public float rechargerTimºe;
     public GameObject bulletPref;
+    public AudioSource AudioSource;
+    public AudioClip shootClip;
+    public AudioClip reloadClip;
 }

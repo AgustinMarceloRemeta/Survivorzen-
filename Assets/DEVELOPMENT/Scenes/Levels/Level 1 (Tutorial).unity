@@ -7580,6 +7580,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 4820940803806905638, guid: 89b93dc7bf64b484da86a5bf49fd17f0, type: 3}
+      propertyPath: FootstepAudioVolume
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8703421597827472951, guid: 89b93dc7bf64b484da86a5bf49fd17f0, type: 3}
       propertyPath: m_Name
       value: Player wShop (1)
