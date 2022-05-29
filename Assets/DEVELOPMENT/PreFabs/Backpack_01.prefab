@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Money: 0
   clip: {fileID: 8300000, guid: e0ae5b46c4aa2034e9814b3cbdd33b4e, type: 3}
-  Min: 100
+  Min: 250
   Max: 500
 --- !u!114 &6449230819985536947
 MonoBehaviour:
