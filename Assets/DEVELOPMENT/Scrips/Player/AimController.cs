@@ -224,6 +224,7 @@ public class AimController : MonoBehaviour
         gunActive.AudioSource.clip = gunActive.shootClip;
         gunActive.AudioSource.Play();
         shootMade++;
+        if (gun == 0 && shootMade < gunActive.numberOfShots && gunActive.bullets > 0) return;
         gunActive.bullets--;
         bulletsTx.text = gunActive.bullets.ToString();
     }

@@ -47,6 +47,7 @@ public class PleyerHealth : Health
             ValueHealth += heal;
             HealSound();
             if (ValueHealth > MaxHealth) ValueHealth = MaxHealth;
+            healthSlider.value = ValueHealth;
             return true;
         }
         else return false;
