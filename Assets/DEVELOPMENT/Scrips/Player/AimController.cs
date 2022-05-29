@@ -48,7 +48,7 @@ public class AimController : MonoBehaviour
     [SerializeField] private Rig rig;
 
 
-    void Start()
+    void Awake()
     {
         _animator = GetComponent<Animator>();
         _animShot = Animator.StringToHash("Shoot");
@@ -144,16 +144,15 @@ public class AimController : MonoBehaviour
 
     public void ChangeGun(int gun)
     {
-        PlayerPrefs.SetInt("gun" + this.gun + "bullets", gunActive.bullets);
-        PlayerPrefs.Save();
+        
         _animator.SetInteger(_animGun, gun);
         OgunActive.SetActive(false);
         OgunActive = guns[gun];
         OgunActive.SetActive(true);
         this.gun = gun;
-        UpdateGun();
-        
+        UpdateGun();   
     }
+
     private void UpdateGun()
     {
         gunActive = OgunActive.GetComponent<Gun>();
@@ -183,7 +182,7 @@ public class AimController : MonoBehaviour
         _animator.SetBool(_animReload, false);
 
         gunActive.bullets = gunActive.magazine;
-        gunActive.bullets = PlayerPrefs.GetInt("gun" + gun + "bullets", gunActive.magazine);
+        PlayerPrefs.SetInt("gun" + this.gun + "bullets", gunActive.bullets);
         bulletsTx.text = gunActive.bullets.ToString();
         canshot = true;
     }
@@ -227,6 +226,7 @@ public class AimController : MonoBehaviour
         shootMade++;
         if (gun == 0 && shootMade < gunActive.numberOfShots && gunActive.bullets > 0) return;
         gunActive.bullets--;
+        PlayerPrefs.SetInt("gun" + this.gun + "bullets", gunActive.bullets);
         bulletsTx.text = gunActive.bullets.ToString();
     }
     public void FinishShot()
@@ -260,5 +260,9 @@ public class AimController : MonoBehaviour
         _animator.SetBool(_animDie, true);
         canshot = false;
         _controller.IsAlive = false;
+    }
+    public void DeadFinish()
+    {
+        FindObjectOfType<GameManager>().ToMenu();
     }
 }

@@ -39,7 +39,6 @@ public class Store : MonoBehaviour
                     Rifle.damage += 10;
                     PlayerPrefs.SetFloat("DamageRifle", PlayerPrefs.GetFloat("DamageRifle", Rifle.damage));
                     Manager.DownScore(Price[Id]);
-                    Manager.UpdateScoreUI();
                     Price[Id] = Price[Id] * PriceX;
                     AsignText();
                     AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
@@ -58,7 +57,6 @@ public class Store : MonoBehaviour
                     Shotgun.damage += 5;
                     PlayerPrefs.SetFloat("DamageShotgun", PlayerPrefs.GetFloat("DamageShotgun", Shotgun.damage));
                     Manager.DownScore(Price[Id]);
-                    Manager.UpdateScoreUI();
                     Price[Id] = Price[Id] * PriceX;
                     AsignText();
                     AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
@@ -73,7 +71,6 @@ public class Store : MonoBehaviour
                     Sniper.damage += 15;
                     PlayerPrefs.SetFloat("DamageSniper", PlayerPrefs.GetFloat("DamageSniper", Sniper.damage));
                     Manager.DownScore(Price[Id]);
-                    Manager.UpdateScoreUI();
                     Price[Id] = Price[Id] * PriceX;
                     AsignText();
                     AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
@@ -100,7 +97,6 @@ public class Store : MonoBehaviour
                     Rifle.rechargerTimºe += 0.5f;
                     PlayerPrefs.SetFloat("ReloadRifle", PlayerPrefs.GetFloat("ReloadRifle", Rifle.rechargerTimºe));
                     Manager.DownScore(Price[Id+3]);
-                    Manager.UpdateScoreUI();
                     Price[Id + 3] = Price[Id + 3] * PriceX;
                     AsignText();
                     AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
@@ -117,7 +113,6 @@ public class Store : MonoBehaviour
                     Shotgun.rechargerTimºe += 0.5f;
                     PlayerPrefs.SetFloat("ReloadShotgun", PlayerPrefs.GetFloat("ReloadShotgun", Shotgun.rechargerTimºe));
                     Manager.DownScore(Price[Id + 3]);
-                    Manager.UpdateScoreUI();
                     Price[Id + 3] = Price[Id + 3] * PriceX;
                     AsignText();
                     AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
@@ -134,7 +129,6 @@ public class Store : MonoBehaviour
                     Sniper.rechargerTimºe += 0.5f;
                     PlayerPrefs.SetFloat("ReloadSniper", PlayerPrefs.GetFloat("ReloadSniper", Sniper.rechargerTimºe));
                     Manager.DownScore(Price[Id + 3]);
-                    Manager.UpdateScoreUI();
                     Price[Id + 3] = Price[Id + 3] * PriceX;
                     AsignText();
                     AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
@@ -161,7 +155,6 @@ public class Store : MonoBehaviour
                     Rifle.numberOfShots += 1;
                     PlayerPrefs.SetInt("SpecialRifle", PlayerPrefs.GetInt("SpecialRifle", Rifle.numberOfShots));
                     Manager.DownScore(Price[Id + 6]);
-                    Manager.UpdateScoreUI();
                     Price[Id + 6] = Price[Id + 6] * PriceX;
                     AsignText();
                     AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
@@ -179,7 +172,6 @@ public class Store : MonoBehaviour
                     Shotgun.numberOfShots += 2;
                     PlayerPrefs.SetInt("SpecialShotgun", PlayerPrefs.GetInt("SpecialShotgun", Shotgun.numberOfShots));
                     Manager.DownScore(Price[Id + 6]);
-                    Manager.UpdateScoreUI();
                     Price[Id + 6] = Price[Id + 6] * PriceX;
                     AsignText();
                     AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
@@ -195,7 +187,6 @@ public class Store : MonoBehaviour
                     Sniper.magazine += 1;
                     PlayerPrefs.SetInt("SpecialSniper", PlayerPrefs.GetInt("SpecialSniper", Sniper.magazine));
                     Manager.DownScore(Price[Id + 6]);
-                    Manager.UpdateScoreUI();
                     Price[Id + 6] = Price[Id + 6] * PriceX;
                     AsignText();
                     AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);

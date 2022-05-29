@@ -14,6 +14,7 @@ public class WeaponSelector : MonoBehaviour
     {
         i = PlayerPrefs.GetInt("weaponSelected", 0);
         shopimage[i].SetActive(true);
+        Weapon.sprite = weapons[i];
         aimController.ChangeGun(i);
     }
 
@@ -23,6 +24,7 @@ public class WeaponSelector : MonoBehaviour
         i++;
         if (i >= 3) i = 0;
         PlayerPrefs.SetInt("weaponSelected", i);
+        PlayerPrefs.Save();
         Weapon.sprite = weapons[i];
         shopimage[i].SetActive(true);
         aimController.ChangeGun(i);
@@ -33,6 +35,7 @@ public class WeaponSelector : MonoBehaviour
         i--;
         if (i <= -1) i = 2;
         PlayerPrefs.SetInt("weaponSelected", i);
+        PlayerPrefs.Save();
         Weapon.sprite = weapons[i];
         shopimage[i].SetActive(true);
         aimController.ChangeGun(i);

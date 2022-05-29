@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        ResetScore();
         UpdateScoreUI();
     }
     private void Update()
@@ -21,12 +20,12 @@ public class GameManager : MonoBehaviour
         
     }
     #region Score
-    public void UpScore(float NewScore) // llamar desde el jugador
+    public void UpScore(float NewScore) 
     {
         PlayerPrefs.SetFloat("Money", PlayerPrefs.GetFloat("Money") + NewScore);
         UpdateScoreUI();
     }
-    public void DownScore(float NewScore) // llamar desde el jugador
+    public void DownScore(float NewScore) 
     {
         PlayerPrefs.SetFloat("Money", PlayerPrefs.GetFloat("Money") - NewScore);
         UpdateScoreUI();
@@ -47,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         Transition.SetBool("End", true);
         PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.Save();
     }
     public void ToMenu()
     {

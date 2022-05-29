@@ -48,6 +48,7 @@ public class PleyerHealth : Health
             HealSound();
             if (ValueHealth > MaxHealth) ValueHealth = MaxHealth;
             healthSlider.value = ValueHealth;
+            SaveHealth();
             return true;
         }
         else return false;
@@ -60,11 +61,13 @@ public class PleyerHealth : Health
             LossHealth(other.GetComponent<Bullet>().damage);
             Destroy(other.gameObject);
             aimController.AnimHit();
+            SaveHealth();
         }
         if (other.CompareTag("Enemy"))
         {
             LossHealth(other.GetComponentInParent<EnemyMelee>().damage);
             aimController.AnimHit();
+            SaveHealth();
         }
     }
     public void SaveHealth()

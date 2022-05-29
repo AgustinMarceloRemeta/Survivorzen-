@@ -16,6 +16,16 @@ public class PlayMenu : MonoBehaviour
     {
         
     }
+    public void Continue()
+    {
+        int level = PlayerPrefs.GetInt("Level", 0);
+        if (level <= 0) NewGame();
+        else
+        {
+            SceneManager.LoadScene(level+1);
+            Time.timeScale = 0;
+        }
+    }
     public void NewGame()
     {
         SceneManager.LoadScene(1);
@@ -26,6 +36,9 @@ public class PlayMenu : MonoBehaviour
 
     private static void ResetPlayerPrefs()
     {
+        //level
+        PlayerPrefs.DeleteKey("Level");
+
         //weapon Selected
         PlayerPrefs.DeleteKey("weaponSelected");
 
