@@ -61,13 +61,11 @@ public class PleyerHealth : Health
             LossHealth(other.GetComponent<Bullet>().damage);
             Destroy(other.gameObject);
             aimController.AnimHit();
-            SaveHealth();
         }
         if (other.CompareTag("Enemy"))
         {
             LossHealth(other.GetComponentInParent<EnemyMelee>().damage);
             aimController.AnimHit();
-            SaveHealth();
         }
     }
     public void SaveHealth()
