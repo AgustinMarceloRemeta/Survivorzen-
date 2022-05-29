@@ -5,17 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayMenu : MonoBehaviour
 {
-
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
+    public OptionsMenu OptionMenu;
     public void Continue()
     {
         int level = PlayerPrefs.GetInt("Level", 0);
@@ -28,10 +18,11 @@ public class PlayMenu : MonoBehaviour
     }
     public void NewGame()
     {
-        SceneManager.LoadScene(1);
-        ResetPlayerPrefs();
+
+        PlayerPrefs.DeleteAll();
         Time.timeScale = 0;
-        //PlayerPrefs.DeleteAll();
+        OptionMenu.SaveAll();
+        SceneManager.LoadScene(1);
     }
 
     private static void ResetPlayerPrefs()

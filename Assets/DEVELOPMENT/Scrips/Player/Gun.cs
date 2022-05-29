@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
     public float fireRate = 1f;
     public int magazine;
     public int bullets;
-    public float rechargerTimºe;
+    public float rechargerTime;
     public GameObject bulletPref;
     public AudioSource AudioSource;
     public AudioClip shootClip;

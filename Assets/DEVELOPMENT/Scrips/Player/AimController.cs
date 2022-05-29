@@ -62,6 +62,7 @@ public class AimController : MonoBehaviour
 
 
         //gun
+        LoadGuns();
         UpdateGun();
     }
 
@@ -158,7 +159,7 @@ public class AimController : MonoBehaviour
         gunActive = OgunActive.GetComponent<Gun>();
         bulletImpulse = gunActive.fireVelocity;
         bulletPref = gunActive.bulletPref;
-        gunActive.bullets = PlayerPrefs.GetInt("gun" + gun + "bullets", gunActive.magazine);
+        //gunActive.bullets = PlayerPrefs.GetInt("gun" + gun + "bullets", gunActive.magazine);
         bulletsTx.text = gunActive.bullets.ToString();
         shootTransforms = gunActive.fireTransforms;
         _animator.SetFloat(_animFireRate, gunActive.fireRate);
@@ -264,5 +265,41 @@ public class AimController : MonoBehaviour
     public void DeadFinish()
     {
         FindObjectOfType<GameManager>().ToMenu();
+    }
+    public void SaveGuns()
+    {
+        for (int i = 0; i < guns.Length; i++)
+        {
+            Gun gun = guns[i].GetComponent<Gun>();
+            PlayerPrefs.SetInt("gun" + i + "bullets" + "atfinish", gun.bullets);
+        } 
+    }
+    public void LoadGuns()
+    {
+        for (int i = 0; i < guns.Length; i++)
+        {
+            Gun gun = guns[i].GetComponent<Gun>();
+            switch (i)
+            {
+                case 0:
+                    gun.damage = PlayerPrefs.GetFloat("DamageRifle", gun.damage);
+                    gun.rechargerTime = PlayerPrefs.GetFloat("ReloadRifle", gun.rechargerTime);
+                    gun.numberOfShots = PlayerPrefs.GetInt("SpecialRifle", gun.numberOfShots);
+                    break;
+                case 1:
+                    gun.damage = PlayerPrefs.GetFloat("DamageShotgun", gun.damage);
+                    gun.rechargerTime = PlayerPrefs.GetFloat("ReloadShotgun", gun.rechargerTime);
+                    gun.numberOfShots = PlayerPrefs.GetInt("SpecialShotgun", gun.numberOfShots);
+                    break;
+                case 2:
+                    break;
+                    gun.damage = PlayerPrefs.GetFloat("DamageSniper", gun.damage);
+                    gun.rechargerTime = PlayerPrefs.GetFloat("ReloadSniper", gun.rechargerTime);
+                    gun.magazine = PlayerPrefs.GetInt("SpecialSniper", gun.magazine);
+                default:
+                    break;
+            }
+            gun.bullets = PlayerPrefs.GetInt("gun" + i + "bullets" + "atfinish", gun.magazine);
+        }
     }
 }

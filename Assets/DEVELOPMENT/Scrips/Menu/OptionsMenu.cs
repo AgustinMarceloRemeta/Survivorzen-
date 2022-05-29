@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
+    int AA;
+    int SA;
     public Slider volume;
     public Button[] AAbtns;
     public Button[] SAbtns;
 
     void Start()
     {
-        Debug.Log(PlayerPrefs.GetInt("AimAssist", 0));
+        
         volume.value = PlayerPrefs.GetFloat("vol", 1);
         AudioListener.volume = volume.value;
         AAbtns[PlayerPrefs.GetInt("AimAssist", 0)].interactable = false;
@@ -39,13 +41,20 @@ public class OptionsMenu : MonoBehaviour
     public void AimAssist(int i)
     {
         PlayerPrefs.SetInt("AimAssist", i);
+        AA = i;
         PlayerPrefs.Save();
-        Debug.Log(PlayerPrefs.GetInt("AimAssist", 0));
     }   
     public void ShotAssist(int i)
     {
         PlayerPrefs.SetInt("ShootAssist", i);
+        SA = i;
         PlayerPrefs.Save();
     }
     
+    public void SaveAll()
+    {
+        PlayerPrefs.SetFloat("vol", volume.value);
+        PlayerPrefs.SetInt("AimAssist",AA);
+        PlayerPrefs.SetInt("ShootAssist", SA);
+    }
 }

@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour
     {
         Transition.SetBool("End", true);
         PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
+        FindObjectOfType<PleyerHealth>().SaveHealth();
+        FindObjectOfType<AimController>().SaveGuns();
+
         PlayerPrefs.Save();
     }
     public void ToMenu()

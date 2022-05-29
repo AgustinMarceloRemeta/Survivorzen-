@@ -19,7 +19,7 @@ public class Store : MonoBehaviour
     {
         Manager = FindObjectOfType<GameManager>();
         LoadSliders();
-        LoadGuns();
+        //LoadGuns();
         StartSlider();
         AsignPrice();
         AsignText();
@@ -94,8 +94,8 @@ public class Store : MonoBehaviour
                     Sliders[Id + 3].value++;
                     int i1 = Id + 3;
                     PlayerPrefs.SetFloat("Slider" + i1, Sliders[Id + 3].value);
-                    Rifle.rechargerTimºe += 0.5f;
-                    PlayerPrefs.SetFloat("ReloadRifle", PlayerPrefs.GetFloat("ReloadRifle", Rifle.rechargerTimºe));
+                    Rifle.rechargerTime += 0.5f;
+                    PlayerPrefs.SetFloat("ReloadRifle", PlayerPrefs.GetFloat("ReloadRifle", Rifle.rechargerTime));
                     Manager.DownScore(Price[Id+3]);
                     Price[Id + 3] = Price[Id + 3] * PriceX;
                     AsignText();
@@ -110,8 +110,8 @@ public class Store : MonoBehaviour
                     Sliders[Id + 3].value++;
                     int i2 = Id + 3;
                     PlayerPrefs.SetFloat("Slider" + i2, Sliders[Id + 3].value);
-                    Shotgun.rechargerTimºe += 0.5f;
-                    PlayerPrefs.SetFloat("ReloadShotgun", PlayerPrefs.GetFloat("ReloadShotgun", Shotgun.rechargerTimºe));
+                    Shotgun.rechargerTime += 0.5f;
+                    PlayerPrefs.SetFloat("ReloadShotgun", PlayerPrefs.GetFloat("ReloadShotgun", Shotgun.rechargerTime));
                     Manager.DownScore(Price[Id + 3]);
                     Price[Id + 3] = Price[Id + 3] * PriceX;
                     AsignText();
@@ -126,8 +126,8 @@ public class Store : MonoBehaviour
                     Sliders[Id + 3].value++;
                     int i3 = Id + 3;
                     PlayerPrefs.SetFloat("Slider" + i3, Sliders[Id + 3].value);
-                    Sniper.rechargerTimºe += 0.5f;
-                    PlayerPrefs.SetFloat("ReloadSniper", PlayerPrefs.GetFloat("ReloadSniper", Sniper.rechargerTimºe));
+                    Sniper.rechargerTime += 0.5f;
+                    PlayerPrefs.SetFloat("ReloadSniper", PlayerPrefs.GetFloat("ReloadSniper", Sniper.rechargerTime));
                     Manager.DownScore(Price[Id + 3]);
                     Price[Id + 3] = Price[Id + 3] * PriceX;
                     AsignText();
@@ -214,9 +214,9 @@ public class Store : MonoBehaviour
         Rifle.damage = PlayerPrefs.GetFloat("DamageRifle", Rifle.damage);
         Shotgun.damage = PlayerPrefs.GetFloat("DamageShotgun", Shotgun.damage);
         Sniper.damage = PlayerPrefs.GetFloat("DamageSniper", Sniper.damage);
-        Rifle.rechargerTimºe = PlayerPrefs.GetFloat("ReloadRifle", Rifle.rechargerTimºe);
-        Shotgun.rechargerTimºe = PlayerPrefs.GetFloat("ReloadShotgun", Shotgun.rechargerTimºe);
-        Sniper.rechargerTimºe = PlayerPrefs.GetFloat("ReloadSniper", Sniper.rechargerTimºe);
+        Rifle.rechargerTime = PlayerPrefs.GetFloat("ReloadRifle", Rifle.rechargerTime);
+        Shotgun.rechargerTime = PlayerPrefs.GetFloat("ReloadShotgun", Shotgun.rechargerTime);
+        Sniper.rechargerTime = PlayerPrefs.GetFloat("ReloadSniper", Sniper.rechargerTime);
         Rifle.numberOfShots = PlayerPrefs.GetInt("SpecialRifle", Rifle.numberOfShots);
         Shotgun.numberOfShots = PlayerPrefs.GetInt("SpecialShotgun", Shotgun.numberOfShots);
         Sniper.magazine = PlayerPrefs.GetInt("SpecialSniper", Sniper.magazine);
