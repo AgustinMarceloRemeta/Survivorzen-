@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2318016}
   - component: {fileID: 6452234}
   - component: {fileID: 2778435398158230115}
+  - component: {fileID: 6449230819985536947}
   m_Layer: 0
   m_Name: Backpack_01
   m_TagString: Untagged
@@ -111,5 +112,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Money: 0
-  Min: 500
-  Max: 1000
+  Min: 100
+  Max: 500
+--- !u!114 &6449230819985536947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105e452b082c04d4a80cc05873f1d942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawners: []
