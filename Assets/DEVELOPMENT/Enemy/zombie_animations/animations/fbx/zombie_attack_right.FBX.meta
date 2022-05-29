@@ -59,8 +59,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.97590363
-        functionName: AttackFinish
+      - time: 0.22757475
+        functionName: AttackSound
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -68,6 +68,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.29182467
         functionName: ColliderActive
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.97590363
+        functionName: AttackFinish
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

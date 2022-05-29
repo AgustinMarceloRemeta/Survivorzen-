@@ -17,6 +17,7 @@ public class EnemyMelee : Enemy
 
     public override void Attack()
     {
+        if (attacking) return;
         _animator.SetBool(animattack, true);
         attacking = true;
     }
@@ -30,4 +31,5 @@ public class EnemyMelee : Enemy
         attacking = false;
         weapon.enabled = false;
     }
+
 }

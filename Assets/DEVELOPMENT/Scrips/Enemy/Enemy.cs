@@ -25,6 +25,12 @@ public abstract class Enemy : MonoBehaviour
     [Header("Sound")]
     public AudioClip[] FootstepAudioClips;
     public float FootstepAudioVolume;
+    public AudioSource audioSource;
+    public AudioClip idleClip;
+    public AudioClip followClip;
+    public AudioClip attackClip;
+    public AudioClip dieClip;
+    public AudioClip hitClip;
 
     public virtual void Start()
     {
@@ -35,7 +41,8 @@ public abstract class Enemy : MonoBehaviour
         Nav = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
         Player = FindObjectOfType<PleyerHealth>().gameObject;
-        
+        Zombieidle();
+        audioSource.Play();
     }
 
     public virtual void Mov()
@@ -46,10 +53,13 @@ public abstract class Enemy : MonoBehaviour
             Nav.SetDestination(Player.transform.position);
             transform.LookAt(Player.transform);
             if (_animator.GetFloat(animSpeedID) == 0) _animator.SetFloat(animSpeedID, Nav.speed);
+            Zombiefollow();
         }
         else
         {
+            Nav.SetDestination(transform.position);
             _animator.SetFloat(animSpeedID, 0);
+            Zombieidle();
         }
 
         if (Vector3.Distance(transform.position, Player.transform.position) < DistanceToStop)
@@ -71,7 +81,8 @@ public abstract class Enemy : MonoBehaviour
             health.LossHealth(bullet.damage);
             _animator.SetLayerWeight(1, 1f);
             _animator.SetBool(animhit, true);
-            if(!bullet.sniper) Destroy(other.gameObject);
+            HitSound();
+            if (!bullet.sniper) Destroy(other.gameObject);
         }
     }
     public virtual void HitAnimFinish()
@@ -88,7 +99,9 @@ public abstract class Enemy : MonoBehaviour
         Nav.SetDestination(transform.position);
         isAlive = false;
         GetComponent<Collider>().enabled = false;
-        
+        DieSound();
+
+
     }
     public virtual void AnimDeathFinish()
     {
@@ -104,5 +117,43 @@ public abstract class Enemy : MonoBehaviour
                 AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, FootstepAudioVolume);
             }
         }
+    }   
+
+    public virtual void Zombiefollow()
+    {
+        if (audioSource.clip == followClip) return;
+        audioSource.loop = true;
+        audioSource.clip = followClip;
+        audioSource.volume = 1f;
+        audioSource.Play();
+    }   
+    public virtual void Zombieidle()
+    {
+        if (audioSource.clip == idleClip || attacking) return;
+        audioSource.loop = true;
+        audioSource.clip = idleClip;
+        audioSource.volume = 1f;
+        audioSource.Play();
+    }
+    public virtual void AttackSound()
+    {
+        audioSource.clip = attackClip;
+        audioSource.loop = false;
+        audioSource.volume = 1f;
+        audioSource.Play();
+    }
+    public virtual void DieSound()
+    {
+        audioSource.clip = dieClip;
+        audioSource.loop = false;
+        audioSource.volume = 1f;
+        audioSource.Play();
+    }
+    public virtual void HitSound()
+    {
+        audioSource.clip = hitClip;
+        audioSource.loop = false;
+        audioSource.volume = 1f;
+        audioSource.Play();
     }
 }

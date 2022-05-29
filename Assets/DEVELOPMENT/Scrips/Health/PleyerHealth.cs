@@ -7,6 +7,9 @@ public class PleyerHealth : Health
 {
     protected AimController aimController;
     [SerializeField]protected Slider healthSlider;
+    public AudioClip[] hitclips;
+    public AudioClip dieclip;
+    public AudioSource audioSource;
     public bool canRecibeDamage;
 
     protected override void Start()
@@ -23,11 +26,16 @@ public class PleyerHealth : Health
     {
         if (!canRecibeDamage) return;
         base.LossHealth(Damage);
-        Debug.Log(Damage);
+        
         healthSlider.value = ValueHealth;
         if (ValueHealth <= 0)
         {
             aimController.AnimDead();
+            DieSound();
+        }
+        else
+        {
+            HitSound();
         }
         canRecibeDamage = false;
     }
@@ -49,5 +57,16 @@ public class PleyerHealth : Health
     {
         PlayerPrefs.SetFloat("PleyerHealth", ValueHealth);
         PlayerPrefs.Save();
+    }
+    public void HitSound()
+    {
+        var index = Random.Range(0, hitclips.Length);
+        audioSource.clip = hitclips[index];
+        audioSource.Play();
+    }
+    public void DieSound()
+    {
+        audioSource.clip = dieclip;
+        audioSource.Play();
     }
 }
