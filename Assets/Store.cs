@@ -23,6 +23,7 @@ public class Store : MonoBehaviour
         StartSlider();
         AsignPrice();
         AsignText();
+      
     }
 
     public void UpgradeDamage(int Id)

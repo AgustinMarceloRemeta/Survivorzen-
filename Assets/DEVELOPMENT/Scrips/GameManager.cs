@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     public void ChangeLevel()
     {
         Transition.SetBool("End", true);
-        PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex +1);
+        PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
     }
     public void ToMenu()
     {

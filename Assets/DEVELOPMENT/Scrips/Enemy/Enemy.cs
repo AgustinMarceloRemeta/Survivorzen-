@@ -105,7 +105,7 @@ public abstract class Enemy : MonoBehaviour
     }
     public virtual void AnimDeathFinish()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
     public virtual void OnZombieFootstep(AnimationEvent animationEvent)
     {
