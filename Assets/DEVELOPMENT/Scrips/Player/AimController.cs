@@ -21,10 +21,10 @@ public class AimController : MonoBehaviour
     [SerializeField] private GameObject OgunActive;
     [SerializeField] public Gun gunActive;
     private int shootMade = 0;
-    private int bullets;
+    //private int bullets;
     [SerializeField] private Text bulletsTx;
 
-    private bool canshot = true;
+    [SerializeField]private bool canshot;
     public bool aiming = true;
 
     [SerializeField] private LayerMask EnemyLayer;
@@ -145,12 +145,15 @@ public class AimController : MonoBehaviour
 
     public void ChangeGun(int gun)
     {
+        PlayerPrefs.SetInt("gun" + this.gun + "bullets", gunActive.bullets);
+        PlayerPrefs.Save();
         _animator.SetInteger(_animGun, gun);
         OgunActive.SetActive(false);
         OgunActive = guns[gun];
         OgunActive.SetActive(true);
-        UpdateGun();
         this.gun = gun;
+        UpdateGun();
+        
     }
     private void UpdateGun()
     {
@@ -158,12 +161,12 @@ public class AimController : MonoBehaviour
         bulletImpulse = gunActive.fireVelocity;
         damage = gunActive.damage;
         bulletPref = gunActive.bulletPref;
-        bullets = gunActive.magazine;
-        bulletsTx.text = bullets.ToString();
+        gunActive.bullets = PlayerPrefs.GetInt("gun" + gun + "bullets", gunActive.magazine);
+        bulletsTx.text = gunActive.bullets.ToString();
         shootTransforms = gunActive.fireTransforms;
         _animator.SetFloat(_animFireRate, gunActive.fireRate);
         canshot = true;
-        
+        if (gunActive.bullets <= 0) canshot = false;
     }
     public void ReloadAnim()
     {
@@ -178,8 +181,8 @@ public class AimController : MonoBehaviour
         
         _animator.SetLayerWeight(1, 0f);
         _animator.SetBool(_animReload, false);
-        bullets = gunActive.magazine;
-        bulletsTx.text = bullets.ToString();
+        gunActive.bullets = gunActive.magazine;
+        bulletsTx.text = gunActive.bullets.ToString();
         canshot = true;
     }
     public void shotAnim()
@@ -218,19 +221,20 @@ public class AimController : MonoBehaviour
             Destroy(bullet, gunActive.fireDistance / bulletImpulse);
         }
         shootMade++;
-        bullets--;
-        bulletsTx.text = bullets.ToString();
+        gunActive.bullets--;
+        bulletsTx.text = gunActive.bullets.ToString();
     }
     public void FinishShot()
     {
-        if (gun == 0 && shootMade < gunActive.numberOfShots && bullets > 0) return;
+        if (gun == 0 && shootMade < gunActive.numberOfShots && gunActive.bullets > 0) return;
         _animator.SetBool(_animShot, false);
         _animator.SetLayerWeight(1, 0f);
         target.localPosition = new Vector3(0, target.localPosition.y, targetposZ);
         canshot = true;
+        if (gunActive.bullets <= 0) canshot = false;
         _controller.shooting = false;
         shootMade = 0;
-        if (bullets == 0) canshot = false;
+        
         
     }
     public void AnimHit()
@@ -244,6 +248,7 @@ public class AimController : MonoBehaviour
         _animator.SetLayerWeight(1, 0f);
         _animator.SetBool(_animHit, false);
         canshot = true;
+        GetComponent<PleyerHealth>().canRecibeDamage = true;
     }
     public void AnimDead()
     {
@@ -251,5 +256,4 @@ public class AimController : MonoBehaviour
         canshot = false;
         _controller.IsAlive = false;
     }
-
 }

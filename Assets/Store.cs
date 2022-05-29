@@ -76,7 +76,7 @@ public class Store : MonoBehaviour
             default:
                 break;               
         }
-
+        PlayerPrefs.Save();
     }
     public void UpgradeReload(int Id)
     {
@@ -134,7 +134,7 @@ public class Store : MonoBehaviour
             default:
                 break;
         }
-
+        PlayerPrefs.Save();
     }
     public void UpgradeSpecial(int Id)
     {
@@ -191,6 +191,7 @@ public class Store : MonoBehaviour
             default:
                 break;
         }
+        PlayerPrefs.Save();
     }
   
     public void LoadSliders()
