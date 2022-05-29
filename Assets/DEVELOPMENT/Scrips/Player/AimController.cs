@@ -15,7 +15,6 @@ public class AimController : MonoBehaviour
     [Header("Shoot")]
     [SerializeField] private GameObject bulletPref;
     [SerializeField] private float  bulletImpulse = 10f;
-    [SerializeField] private float  damage = 25f;
     [SerializeField] public int  gun = 0;
     [SerializeField] private GameObject[]  guns;
     [SerializeField] private GameObject OgunActive;
@@ -159,7 +158,6 @@ public class AimController : MonoBehaviour
     {
         gunActive = OgunActive.GetComponent<Gun>();
         bulletImpulse = gunActive.fireVelocity;
-        damage = gunActive.damage;
         bulletPref = gunActive.bulletPref;
         gunActive.bullets = PlayerPrefs.GetInt("gun" + gun + "bullets", gunActive.magazine);
         bulletsTx.text = gunActive.bullets.ToString();
@@ -211,7 +209,7 @@ public class AimController : MonoBehaviour
                 GameObject bullet = Instantiate(bulletPref, shootTransforms[i].position, Quaternion.Euler(90, bulletangle, 0));
                 //bullet.GetComponent<Rigidbody>().AddRelativeForce(shootTransform.forward * bulletImpulse, ForceMode.Impulse);
                 bullet.GetComponent<Rigidbody>().velocity = shootTransforms[i].forward * bulletImpulse;
-                bullet.GetComponent<Bullet>().SetDamage(damage);
+                bullet.GetComponent<Bullet>().SetDamage(gunActive.damage);
                 Destroy(bullet, gunActive.fireDistance / bulletImpulse);
             }
         }
@@ -220,7 +218,7 @@ public class AimController : MonoBehaviour
             GameObject bullet = Instantiate(bulletPref, shootTransforms[0].position, Quaternion.Euler(90, bulletangle, 0));
             //bullet.GetComponent<Rigidbody>().AddRelativeForce(shootTransform.forward * bulletImpulse, ForceMode.Impulse);
             bullet.GetComponent<Rigidbody>().velocity = shootTransforms[0].forward * bulletImpulse;
-            bullet.GetComponent<Bullet>().SetDamage(damage);
+            bullet.GetComponent<Bullet>().SetDamage(gunActive.damage);
             Destroy(bullet, gunActive.fireDistance / bulletImpulse);
         }
         gunActive.AudioSource.clip = gunActive.shootClip;

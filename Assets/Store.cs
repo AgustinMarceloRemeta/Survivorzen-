@@ -10,6 +10,7 @@ public class Store : MonoBehaviour
     [SerializeField] Slider[] Sliders;
     [SerializeField] int[] Price;
     [SerializeField] TextMeshProUGUI[] TextPrice;
+    [SerializeField] AudioClip sellClip;
     GameManager Manager;
 
 
@@ -39,6 +40,7 @@ public class Store : MonoBehaviour
                     Manager.UpdateScoreUI();
                     Price[Id] = Price[Id] * 2;
                     AsignText();
+                    AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
 
                 }
 
@@ -57,6 +59,7 @@ public class Store : MonoBehaviour
                     Manager.UpdateScoreUI();
                     Price[Id] = Price[Id] * 2;
                     AsignText();
+                    AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
                 }
                 break;
             case 2:
@@ -71,11 +74,13 @@ public class Store : MonoBehaviour
                     Manager.UpdateScoreUI();
                     Price[Id] = Price[Id] * 2;
                     AsignText();
+                    AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
                 }
                 break;
             default:
                 break;               
         }
+        
         PlayerPrefs.Save();
     }
     public void UpgradeReload(int Id)
@@ -96,6 +101,7 @@ public class Store : MonoBehaviour
                     Manager.UpdateScoreUI();
                     Price[Id + 3] = Price[Id + 3] * 2;
                     AsignText();
+                    AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
                 }
                 break;
 
@@ -112,6 +118,7 @@ public class Store : MonoBehaviour
                     Manager.UpdateScoreUI();
                     Price[Id + 3] = Price[Id + 3] * 2;
                     AsignText();
+                    AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
                 }
                 break;
 
@@ -128,6 +135,7 @@ public class Store : MonoBehaviour
                     Manager.UpdateScoreUI();
                     Price[Id + 3] = Price[Id + 3] * 2;
                     AsignText();
+                    AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
                 }
                 break;
 
@@ -154,6 +162,7 @@ public class Store : MonoBehaviour
                     Manager.UpdateScoreUI();
                     Price[Id + 6] = Price[Id + 6] * 2;
                     AsignText();
+                    AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
                 }
                 break;
 
@@ -171,6 +180,7 @@ public class Store : MonoBehaviour
                     Manager.UpdateScoreUI();
                     Price[Id + 6] = Price[Id + 6] * 2;
                     AsignText();
+                    AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
                 }
                 break;
             case 2:
@@ -186,6 +196,7 @@ public class Store : MonoBehaviour
                     Manager.UpdateScoreUI();
                     Price[Id + 6] = Price[Id + 6] * 2;
                     AsignText();
+                    AudioSource.PlayClipAtPoint(sellClip, Rifle.transform.position, 1);
                 }
                 break;
             default:

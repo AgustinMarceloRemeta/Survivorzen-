@@ -20,7 +20,7 @@ public class PlayMenu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         ResetPlayerPrefs();
-        
+        Time.timeScale = 0;
         //PlayerPrefs.DeleteAll();
     }
 

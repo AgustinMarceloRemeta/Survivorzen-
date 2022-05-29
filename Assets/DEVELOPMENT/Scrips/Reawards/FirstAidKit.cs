@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class FirstAidKit : MonoBehaviour
 {
-    public float heal = -50;
+    public float heal = 50;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<PleyerHealth>(out PleyerHealth player))
         {
-            player.LossHealth(heal);
-            Destroy(gameObject);
+            if (player.Heal(heal))
+            {
+                Destroy(gameObject);
+            }
         }
 
     }

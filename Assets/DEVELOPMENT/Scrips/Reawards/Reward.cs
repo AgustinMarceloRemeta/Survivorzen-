@@ -5,6 +5,7 @@ using UnityEngine;
 public class Reward : MonoBehaviour
 {
     public int Money;
+    public AudioClip clip;
     [SerializeField] int Min, Max;
     private void Start()    
     {
@@ -15,8 +16,13 @@ public class Reward : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             FindObjectOfType<GameManager>().UpScore(Money);
+            sound();
             Destroy(gameObject);
         }
-        
+
+    }
+    public void sound()
+    {
+        AudioSource.PlayClipAtPoint(clip, transform.position, 1);
     }
 }

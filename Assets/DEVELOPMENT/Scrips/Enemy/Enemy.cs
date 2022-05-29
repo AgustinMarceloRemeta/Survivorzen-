@@ -81,7 +81,7 @@ public abstract class Enemy : MonoBehaviour
             health.LossHealth(bullet.damage);
             _animator.SetLayerWeight(1, 1f);
             _animator.SetBool(animhit, true);
-            HitSound();
+            if(isAlive)HitSound();
             if (!bullet.sniper) Destroy(other.gameObject);
         }
     }
@@ -151,9 +151,6 @@ public abstract class Enemy : MonoBehaviour
     }
     public virtual void HitSound()
     {
-        audioSource.clip = hitClip;
-        audioSource.loop = false;
-        audioSource.volume = 1f;
-        audioSource.Play();
+        AudioSource.PlayClipAtPoint(hitClip, transform.position, 1);
     }
 }

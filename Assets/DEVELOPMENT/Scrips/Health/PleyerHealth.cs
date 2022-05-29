@@ -9,6 +9,7 @@ public class PleyerHealth : Health
     [SerializeField]protected Slider healthSlider;
     public AudioClip[] hitclips;
     public AudioClip dieclip;
+    public AudioClip healclip;
     public AudioSource audioSource;
     public bool canRecibeDamage;
 
@@ -39,6 +40,18 @@ public class PleyerHealth : Health
         }
         canRecibeDamage = false;
     }
+    public bool Heal(float heal)
+    {
+        if (ValueHealth < MaxHealth)
+        {
+            ValueHealth += heal;
+            HealSound();
+            if (ValueHealth > MaxHealth) ValueHealth = MaxHealth;
+            return true;
+        }
+        else return false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("EnemyBullet"))
@@ -67,6 +80,11 @@ public class PleyerHealth : Health
     public void DieSound()
     {
         audioSource.clip = dieclip;
+        audioSource.Play();
+    }
+    public void HealSound()
+    {
+        audioSource.clip = healclip;
         audioSource.Play();
     }
 }
