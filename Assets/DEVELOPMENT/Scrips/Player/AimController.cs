@@ -183,6 +183,7 @@ public class AimController : MonoBehaviour
         _animator.SetBool(_animReload, false);
 
         gunActive.bullets = gunActive.magazine;
+        gunActive.bullets = PlayerPrefs.GetInt("gun" + gun + "bullets", gunActive.magazine);
         bulletsTx.text = gunActive.bullets.ToString();
         canshot = true;
     }
