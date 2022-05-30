@@ -9,10 +9,10 @@ public class Gun : MonoBehaviour
     public int numberOfShots;
     public float fireDistance;
     public float fireVelocity;
-    public float fireRate = 1f;
+    public float fireRate;
     public int magazine;
     public int bullets;
-    public float rechargerTime;
+    public float rechargerTime = 1f;
     public GameObject bulletPref;
     public AudioSource AudioSource;
     public AudioClip shootClip;

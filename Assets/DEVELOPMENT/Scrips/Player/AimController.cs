@@ -162,16 +162,17 @@ public class AimController : MonoBehaviour
         //gunActive.bullets = PlayerPrefs.GetInt("gun" + gun + "bullets", gunActive.magazine);
         bulletsTx.text = gunActive.bullets.ToString();
         shootTransforms = gunActive.fireTransforms;
-        _animator.SetFloat(_animFireRate, gunActive.fireRate);
         canshot = true;
         if (gunActive.bullets <= 0) canshot = false;
     }
     public void ReloadAnim()
     {
         if (_controller.shooting) return;
+
         _animator.SetLayerWeight(1, 1f);
         _animator.SetBool(_animReload, true);
         gunActive.AudioSource.clip = gunActive.reloadClip;
+        gunActive.AudioSource.pitch = gunActive.rechargerTime;
         gunActive.AudioSource.Play();
         canshot = false;
     }
@@ -181,7 +182,7 @@ public class AimController : MonoBehaviour
         
         _animator.SetLayerWeight(1, 0f);
         _animator.SetBool(_animReload, false);
-
+        _animator.SetFloat(_animFireRate, gunActive.rechargerTime);
         gunActive.bullets = gunActive.magazine;
         PlayerPrefs.SetInt("gun" + this.gun + "bullets", gunActive.bullets);
         bulletsTx.text = gunActive.bullets.ToString();
@@ -223,6 +224,7 @@ public class AimController : MonoBehaviour
             Destroy(bullet, gunActive.fireDistance / bulletImpulse);
         }
         gunActive.AudioSource.clip = gunActive.shootClip;
+        gunActive.AudioSource.pitch = 1;
         gunActive.AudioSource.Play();
         shootMade++;
         if (gun == 0 && shootMade < gunActive.numberOfShots && gunActive.bullets > 0) return;

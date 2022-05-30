@@ -10083,7 +10083,7 @@ MonoBehaviour:
   fireRate: 1
   magazine: 1
   bullets: 0
-  "rechargerTim\xBAe": 1
+  rechargerTime: 1
   bulletPref: {fileID: 179290, guid: 4606cefc0dd774743936dff46664ca14, type: 3}
   AudioSource: {fileID: 7378045677543687959}
   shootClip: {fileID: 8300000, guid: 7047c8c94412fce47a0d3bb3f13f551f, type: 3}
@@ -15618,7 +15618,7 @@ MonoBehaviour:
   fireRate: 1
   magazine: 10
   bullets: 0
-  "rechargerTim\xBAe": 0
+  rechargerTime: 1
   bulletPref: {fileID: 179290, guid: bfe954ca1cb62b14396508c472d73319, type: 3}
   AudioSource: {fileID: 8530944768255988440}
   shootClip: {fileID: 8300000, guid: 895f31119e778304aa5e261bec8917e4, type: 3}
@@ -15998,7 +15998,7 @@ MonoBehaviour:
   fireRate: 1
   magazine: 5
   bullets: 0
-  "rechargerTim\xBAe": 0
+  rechargerTime: 1
   bulletPref: {fileID: 194079936619715303, guid: 188967427a9c9be47bdc4a53a1e149a1, type: 3}
   AudioSource: {fileID: 3517326076023106271}
   shootClip: {fileID: 8300000, guid: 09e24e891c8b1194aa8064c6d32f4ce5, type: 3}
@@ -25582,7 +25582,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 40db3173a05ae3242b1c182a09b0a183, type: 2}
     - target: {fileID: 5866666021909216657, guid: ab8cc2ed93fc8b646b542cc035c27a0c, type: 3}
       propertyPath: m_UpdateMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ab8cc2ed93fc8b646b542cc035c27a0c, type: 3}
       propertyPath: m_WarningMessage
