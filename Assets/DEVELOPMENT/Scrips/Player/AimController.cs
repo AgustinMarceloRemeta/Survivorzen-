@@ -169,6 +169,7 @@ public class AimController : MonoBehaviour
     {
         if (_controller.shooting) return;
 
+        _animator.SetFloat(_animFireRate, gunActive.rechargerTime);
         _animator.SetLayerWeight(1, 1f);
         _animator.SetBool(_animReload, true);
         gunActive.AudioSource.clip = gunActive.reloadClip;
@@ -182,7 +183,6 @@ public class AimController : MonoBehaviour
         
         _animator.SetLayerWeight(1, 0f);
         _animator.SetBool(_animReload, false);
-        _animator.SetFloat(_animFireRate, gunActive.rechargerTime);
         gunActive.bullets = gunActive.magazine;
         PlayerPrefs.SetInt("gun" + this.gun + "bullets", gunActive.bullets);
         bulletsTx.text = gunActive.bullets.ToString();
