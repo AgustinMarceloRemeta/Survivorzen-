@@ -72,14 +72,6 @@ public class AimController : MonoBehaviour
     {
         angleUpdate();
         if (fixedJoystick.Direction.magnitude > sensivility) aiming = true;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ChangeGun(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ChangeGun(1);
-        }
     }
 
     public void angleUpdate() => angle = Vector2.SignedAngle(fixedJoystick.Direction, new Vector2(transform.forward.x, transform.forward.z));
