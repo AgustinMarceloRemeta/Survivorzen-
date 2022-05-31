@@ -286,10 +286,11 @@ public class AimController : MonoBehaviour
                     gun.numberOfShots = PlayerPrefs.GetInt("SpecialShotgun", gun.numberOfShots);
                     break;
                 case 2:
-                    break;
+                    
                     gun.damage = PlayerPrefs.GetFloat("DamageSniper", gun.damage);
                     gun.rechargerTime = PlayerPrefs.GetFloat("ReloadSniper", gun.rechargerTime);
                     gun.magazine = PlayerPrefs.GetInt("SpecialSniper", gun.magazine);
+                    break;
                 default:
                     break;
             }
