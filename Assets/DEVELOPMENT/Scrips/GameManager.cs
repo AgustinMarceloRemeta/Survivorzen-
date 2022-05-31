@@ -10,9 +10,12 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI moneyTxt;
     [SerializeField] Animator Transition;
+    [SerializeField] Store store;
+    public float money;
 
     void Start()
     {
+        money = PlayerPrefs.GetFloat("Money", 0);
         UpdateScoreUI();
     }
     private void Update()
@@ -22,23 +25,26 @@ public class GameManager : MonoBehaviour
     #region Score
     public void UpScore(float NewScore) 
     {
-        PlayerPrefs.SetFloat("Money", PlayerPrefs.GetFloat("Money") + NewScore);
+        money += NewScore;
+       // PlayerPrefs.SetFloat("Money", PlayerPrefs.GetFloat("Money") + NewScore);
         UpdateScoreUI();
     }
     public void DownScore(float NewScore) 
     {
-        PlayerPrefs.SetFloat("Money", PlayerPrefs.GetFloat("Money") - NewScore);
+        money -= NewScore;
+        //PlayerPrefs.SetFloat("Money", PlayerPrefs.GetFloat("Money") - NewScore);
         UpdateScoreUI();
     }
     private void ResetScore()
     {
-        PlayerPrefs.SetFloat("Money", 0);
+       // PlayerPrefs.SetFloat("Money", 0);
         UpdateScoreUI();
     }
 
     public void UpdateScoreUI()
     {
-        moneyTxt.text = PlayerPrefs.GetFloat("Money", 0).ToString();
+        //moneyTxt.text = PlayerPrefs.GetFloat("Money", 0).ToString();
+        moneyTxt.text = money.ToString();
     }
     #endregion
 
@@ -48,6 +54,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
         FindObjectOfType<PleyerHealth>().SaveHealth();
         FindObjectOfType<AimController>().SaveGuns();
+        PlayerPrefs.SetFloat("Money", money);
+        store.SaveSliders();
 
         PlayerPrefs.Save();
     }

@@ -31,11 +31,10 @@ public class Store : MonoBehaviour
         switch (Id)
         {
             case 0:
-                if (Price[Id] <= PlayerPrefs.GetFloat("Money"))
+                if (Price[Id] <= Manager.money)
                 {
                     if (Sliders[Id].value >= 3) return;
                     Sliders[Id].value++;
-                    PlayerPrefs.SetFloat("Slider" + Id, Sliders[Id].value);
                     Rifle.damage += 10;
                     PlayerPrefs.SetFloat("DamageRifle", PlayerPrefs.GetFloat("DamageRifle", Rifle.damage));
                     Manager.DownScore(Price[Id]);
@@ -49,11 +48,10 @@ public class Store : MonoBehaviour
                 break;
 
             case 1:
-                if (Price[Id] <= PlayerPrefs.GetFloat("Money"))
+                if (Price[Id] <= Manager.money)
                 {
                     if (Sliders[Id].value >= 3) return;
                     Sliders[Id].value++;
-                    PlayerPrefs.SetFloat("Slider" + Id, Sliders[Id].value);
                     Shotgun.damage += 5;
                     PlayerPrefs.SetFloat("DamageShotgun", PlayerPrefs.GetFloat("DamageShotgun", Shotgun.damage));
                     Manager.DownScore(Price[Id]);
@@ -63,11 +61,10 @@ public class Store : MonoBehaviour
                 }
                 break;
             case 2:
-                if (Price[Id] <= PlayerPrefs.GetFloat("Money"))
+                if (Price[Id] <= Manager.money)
                 {
                     if (Sliders[Id].value >= 3) return;
                     Sliders[Id].value++;
-                    PlayerPrefs.SetFloat("Slider" + Id, Sliders[Id].value);
                     Sniper.damage += 15;
                     PlayerPrefs.SetFloat("DamageSniper", PlayerPrefs.GetFloat("DamageSniper", Sniper.damage));
                     Manager.DownScore(Price[Id]);
@@ -88,12 +85,11 @@ public class Store : MonoBehaviour
         switch (Id)
         {
             case 0:
-                if (Price[Id+3] <= PlayerPrefs.GetFloat("Money"))
+                if (Price[Id+3] <= Manager.money)
                 {
                     if (Sliders[Id + 3].value >= 3) return;
                     Sliders[Id + 3].value++;
                     int i1 = Id + 3;
-                    PlayerPrefs.SetFloat("Slider" + i1, Sliders[Id + 3].value);
                     Rifle.rechargerTime += 0.5f;
                     PlayerPrefs.SetFloat("ReloadRifle", PlayerPrefs.GetFloat("ReloadRifle", Rifle.rechargerTime));
                     Manager.DownScore(Price[Id+3]);
@@ -104,12 +100,11 @@ public class Store : MonoBehaviour
                 break;
 
             case 1:
-                if (Price[Id + 3] <= PlayerPrefs.GetFloat("Money"))
+                if (Price[Id + 3] <= Manager.money)
                 {
                     if (Sliders[Id + 3].value >= 3) return;
                     Sliders[Id + 3].value++;
                     int i2 = Id + 3;
-                    PlayerPrefs.SetFloat("Slider" + i2, Sliders[Id + 3].value);
                     Shotgun.rechargerTime += 0.5f;
                     PlayerPrefs.SetFloat("ReloadShotgun", PlayerPrefs.GetFloat("ReloadShotgun", Shotgun.rechargerTime));
                     Manager.DownScore(Price[Id + 3]);
@@ -120,12 +115,11 @@ public class Store : MonoBehaviour
                 break;
 
             case 2:
-                if (Price[Id + 3] <= PlayerPrefs.GetFloat("Money"))
+                if (Price[Id + 3] <= Manager.money)
                 {
                     if (Sliders[Id + 3].value >= 3) return;
                     Sliders[Id + 3].value++;
                     int i3 = Id + 3;
-                    PlayerPrefs.SetFloat("Slider" + i3, Sliders[Id + 3].value);
                     Sniper.rechargerTime += 0.5f;
                     PlayerPrefs.SetFloat("ReloadSniper", PlayerPrefs.GetFloat("ReloadSniper", Sniper.rechargerTime));
                     Manager.DownScore(Price[Id + 3]);
@@ -146,12 +140,11 @@ public class Store : MonoBehaviour
         switch (Id)
         {
             case 0:
-                if (Price[Id + 6] <= PlayerPrefs.GetFloat("Money"))
+                if (Price[Id + 6] <= Manager.money)
                 {
                     if (Sliders[Id + 6].value >= 3) return;
                     Sliders[Id + 6].value++;
                     int i1 = Id + 6;
-                    PlayerPrefs.SetFloat("Slider" + i1, Sliders[Id + 6].value);
                     Rifle.numberOfShots += 1;
                     PlayerPrefs.SetInt("SpecialRifle", PlayerPrefs.GetInt("SpecialRifle", Rifle.numberOfShots));
                     Manager.DownScore(Price[Id + 6]);
@@ -163,12 +156,11 @@ public class Store : MonoBehaviour
 
             case 1:
 
-                if (Price[Id + 6] <= PlayerPrefs.GetFloat("Money"))
+                if (Price[Id + 6] <= Manager.money)
                 {
                     if (Sliders[Id + 6].value >= 3) return;
                     Sliders[Id + 6].value++;
                     int i2 = Id + 6;
-                    PlayerPrefs.SetFloat("Slider" + i2, Sliders[Id + 6].value);
                     Shotgun.numberOfShots += 2;
                     PlayerPrefs.SetInt("SpecialShotgun", PlayerPrefs.GetInt("SpecialShotgun", Shotgun.numberOfShots));
                     Manager.DownScore(Price[Id + 6]);
@@ -178,12 +170,11 @@ public class Store : MonoBehaviour
                 }
                 break;
             case 2:
-                if (Price[Id + 6] <= PlayerPrefs.GetFloat("Money"))
+                if (Price[Id + 6] <= Manager.money)
                 {
                     if (Sliders[Id + 6].value >= 3) return;
                     Sliders[Id + 6].value++;
                     int i3 = Id + 6;
-                    PlayerPrefs.SetFloat("Slider" + i3, Sliders[Id + 6].value);
                     Sniper.magazine += 1;
                     PlayerPrefs.SetInt("SpecialSniper", PlayerPrefs.GetInt("SpecialSniper", Sniper.magazine));
                     Manager.DownScore(Price[Id + 6]);
@@ -254,6 +245,13 @@ public class Store : MonoBehaviour
                 default:
                     break;
             }
+        }
+    }
+    public void SaveSliders()
+    {
+        for (int i = 0; i < Sliders.Length; i++)
+        {
+            PlayerPrefs.SetFloat("Slider" + i, Sliders[i].value);
         }
     }
 }

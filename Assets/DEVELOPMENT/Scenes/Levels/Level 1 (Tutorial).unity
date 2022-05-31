@@ -10163,6 +10163,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8811631683853121652, guid: 01a04f35bf7adc948996be6666dbd7fb, type: 3}
   m_PrefabInstance: {fileID: 699502353}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &715530706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3482159764641028465, guid: 89b93dc7bf64b484da86a5bf49fd17f0, type: 3}
+  m_PrefabInstance: {fileID: 974012985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526467a1862b1e34b9f45086f718f5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &771597851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 822001626488842107, guid: 1a043094696e407499ed43ea67d11511, type: 3}
@@ -20894,6 +20905,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 4468632498962300722, guid: 31cdbe8793f67304a9ec3f368cbd66f8, type: 3}
+      propertyPath: store
+      value: 
+      objectReference: {fileID: 715530706}
     - target: {fileID: 4468632498962300722, guid: 31cdbe8793f67304a9ec3f368cbd66f8, type: 3}
       propertyPath: Transition
       value: 
