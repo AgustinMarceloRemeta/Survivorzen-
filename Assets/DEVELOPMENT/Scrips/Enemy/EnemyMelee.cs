@@ -10,7 +10,7 @@ public class EnemyMelee : Enemy
     {
         base.Start();
         animattack = Animator.StringToHash("Melee");
-        InvokeRepeating("Mov", 0, 0.01f);
+        InvokeRepeating("Mov", 0, 0.1f);
         weapon.enabled = false;
     }
 

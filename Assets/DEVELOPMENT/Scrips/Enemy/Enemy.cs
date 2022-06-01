@@ -50,6 +50,7 @@ public abstract class Enemy : MonoBehaviour
         if (!isAlive) return;
         if (!attacking && Vector3.Distance(transform.position, Player.transform.position) < DistanceToPursue && Vector3.Distance(transform.position, Player.transform.position) > DistanceToStop )
         {
+            Nav.isStopped = false;
             Nav.SetDestination(Player.transform.position);
             transform.LookAt(Player.transform);
             if (_animator.GetFloat(animSpeedID) == 0) _animator.SetFloat(animSpeedID, Nav.speed);
@@ -57,14 +58,16 @@ public abstract class Enemy : MonoBehaviour
         }
         else
         {
-            Nav.SetDestination(transform.position);
+            Nav.isStopped = true;
+            //Nav.SetDestination(transform.position);
             _animator.SetFloat(animSpeedID, 0);
             Zombieidle();
         }
 
         if (Vector3.Distance(transform.position, Player.transform.position) < DistanceToStop)
         {
-            Nav.SetDestination(transform.position);
+            //Nav.SetDestination(transform.position);
+            Nav.isStopped = true;
             transform.LookAt(Player.transform);
             Attack();
         }

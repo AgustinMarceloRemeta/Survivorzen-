@@ -15,7 +15,7 @@ public class EnemyDistance : Enemy
     {
         base.Start();
         animattack = Animator.StringToHash("Shoot");
-        InvokeRepeating("Mov", 0, 0.01f);
+        InvokeRepeating("Mov", 0, 0.1f);
 
     }
 
