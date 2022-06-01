@@ -31,7 +31,7 @@ public class EnemyDistance : Enemy
         
         Direction -= Gun.position;
         Direction.y = 0f;
-        bullet.GetComponent<Rigidbody>().AddRelativeForce(Direction * ShootImpulse, ForceMode.Impulse);
+        bullet.GetComponent<Rigidbody>().AddRelativeForce(Direction.normalized * ShootImpulse, ForceMode.Impulse);
         bullet.GetComponent<Bullet>().SetDamage(damage);
         Destroy(bullet, 5);
     }

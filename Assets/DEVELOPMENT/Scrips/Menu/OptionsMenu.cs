@@ -13,11 +13,13 @@ public class OptionsMenu : MonoBehaviour
 
     void Start()
     {
-        
+
+        AA = PlayerPrefs.GetInt("AimAssist", 0);
+        SA = PlayerPrefs.GetInt("ShootAssist", 0);
         volume.value = PlayerPrefs.GetFloat("vol", 1);
         AudioListener.volume = volume.value;
-        AAbtns[PlayerPrefs.GetInt("AimAssist", 0)].interactable = false;
-        SAbtns[PlayerPrefs.GetInt("ShootAssist", 0)].interactable = false;
+        AAbtns[AA].interactable = false;
+        SAbtns[SA].interactable = false;
         
     }
 

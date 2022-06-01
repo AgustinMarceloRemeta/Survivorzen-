@@ -87,7 +87,7 @@ MonoBehaviour:
   hitClip: {fileID: 8300000, guid: a73298df202728c48ae02b561959ae29, type: 3}
   BulletPref: {fileID: 110074, guid: 6eb29af9fa551554c8ca757f8f3f2330, type: 3}
   Gun: {fileID: 932919084218950188}
-  ShootImpulse: 2
+  ShootImpulse: 8
 --- !u!1 &8156072396422956325
 GameObject:
   m_ObjectHideFlags: 0
