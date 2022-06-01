@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public Transform cameraT;
-    //public Transform cameraTDefault;
-    //public Transform player;
+
+    public GameObject exitMessage;
     public void resumeBtn()
     {
         Vector3 camPos = cameraT.position;
@@ -24,7 +24,6 @@ public class PauseMenu : MonoBehaviour
     }
     public void exit()
     {
-        SceneManager.LoadScene(0);
-        Time.timeScale = 1;
+        Instantiate(exitMessage);
     }
 }
