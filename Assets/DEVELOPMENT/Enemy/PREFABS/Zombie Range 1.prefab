@@ -301,6 +301,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1256301187135475344, guid: 15123511386f46042ac5702e3c35aab5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256301187135475344, guid: 15123511386f46042ac5702e3c35aab5, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 15123511386f46042ac5702e3c35aab5, type: 3}
       propertyPath: m_Controller
       value: 

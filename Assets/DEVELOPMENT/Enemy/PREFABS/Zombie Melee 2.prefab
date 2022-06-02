@@ -316,10 +316,26 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4327364584303739539, guid: 258cb5ed4de87ec439685d48cd5143bf, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327364584303739539, guid: 258cb5ed4de87ec439685d48cd5143bf, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 258cb5ed4de87ec439685d48cd5143bf, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c37e7fa7a11512f4595866211cd22c82, type: 2}
+    - target: {fileID: 7720357516399336923, guid: 258cb5ed4de87ec439685d48cd5143bf, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720357516399336923, guid: 258cb5ed4de87ec439685d48cd5143bf, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 258cb5ed4de87ec439685d48cd5143bf, type: 3}
 --- !u!1 &8143322830261723854 stripped

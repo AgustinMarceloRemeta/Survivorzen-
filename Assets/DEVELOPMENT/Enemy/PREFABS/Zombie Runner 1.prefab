@@ -297,6 +297,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6409152252920168595, guid: 6ecb2b86a36d61548ae4afc5f9aa2d00, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6409152252920168595, guid: 6ecb2b86a36d61548ae4afc5f9aa2d00, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -5999994328379935890, guid: 6ecb2b86a36d61548ae4afc5f9aa2d00, type: 3}
       propertyPath: m_TagString
       value: Enemy
