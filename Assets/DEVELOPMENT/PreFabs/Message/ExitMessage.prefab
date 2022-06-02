@@ -375,8 +375,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: if you exit you will lose the progress of the last level. Would you  want
-    to do it anyway?
+  m_text: you will lose the progress since the last checkpoint. Would you  want to
+    do it anyway?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f71b7af68f2aa749bf4775a8d177ed2, type: 2}
   m_sharedMaterial: {fileID: 5038913118939674682, guid: 7f71b7af68f2aa749bf4775a8d177ed2, type: 2}
