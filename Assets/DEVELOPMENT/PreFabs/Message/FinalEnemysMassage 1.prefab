@@ -241,7 +241,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\rYou must kill the illuminated zombies to pass the level\r\n"
+  m_text: You must kill the last zombies to pass the level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 121b327bc59f1174dba867b551a5e3bf, type: 2}
   m_sharedMaterial: {fileID: -4858292644979777518, guid: 121b327bc59f1174dba867b551a5e3bf, type: 2}
