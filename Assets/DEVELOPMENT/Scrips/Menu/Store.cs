@@ -18,9 +18,9 @@ public class Store : MonoBehaviour
     private void Start()
     {
         Manager = FindObjectOfType<GameManager>();
-        //LoadGuns();
-        StartSlider();
+        //LoadGuns();      
         LoadSliders();
+        StartSlider();
         AsignPrice();
         AsignText();
       

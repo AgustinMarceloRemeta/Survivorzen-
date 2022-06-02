@@ -12,21 +12,23 @@ public class GameManagerLvl3 : GameManager
     {
         
         Zone = PlayerPrefs.GetInt("Zone", 0);
-        Player = GameObject.FindGameObjectWithTag("Player");       
+        Player = GameObject.FindGameObjectWithTag("Player");
+        print(Zone);
         switch (Zone)
         {
         case 1:
-                Destroy(Zone1);
-                    Zone2.SetActive(true);
+                print(Zone);
+                // Destroy(Zone1);
                 Player.transform.position = ZonePosition2;
+                Zone2.SetActive(true);
                 Destroy(ChangeZone1);
                 break;
 
        case 2:
-                Destroy(Zone1);
-                Zone3.SetActive(true);
+                // Destroy(Zone1);
                 Player.transform.position = ZonePosition3;
-                Destroy(ChangeZone2);
+                Zone3.SetActive(true);
+              Destroy(ChangeZone2);
                 break;
 
             default:
