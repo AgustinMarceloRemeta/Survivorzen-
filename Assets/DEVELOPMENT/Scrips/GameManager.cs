@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Store store;
     public float money;
 
-    void Start()
+    public virtual void Start()
     {
         money = PlayerPrefs.GetFloat("Money", 0);
         UpdateScoreUI();
@@ -51,14 +51,20 @@ public class GameManager : MonoBehaviour
     public void ChangeLevel()
     {
         Transition.SetBool("End", true);
+        Time.timeScale = 0;
+        SaveLevel();
+    }
+
+    public void SaveLevel()
+    {
         PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
         FindObjectOfType<PleyerHealth>().SaveHealth();
         FindObjectOfType<AimController>().SaveGuns();
         PlayerPrefs.SetFloat("Money", money);
         store.SaveSliders();
-        Time.timeScale = 0;
         PlayerPrefs.Save();
     }
+
     public void ToMenu()
     {
         Transition.SetBool("Dead", true);

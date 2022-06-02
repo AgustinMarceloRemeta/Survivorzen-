@@ -10,7 +10,10 @@ public class ChangeZone : MonoBehaviour
        if(other.gameObject.CompareTag("Player"))
         {
             ZoneOn.SetActive(true);
-            ZoneOff.SetActive(false);
+            Destroy(ZoneOff);
+            FindObjectOfType<GameManager>().SaveLevel();
+            PlayerPrefs.SetInt("Zone", PlayerPrefs.GetInt("Zone") + 1);
+            Destroy(gameObject);
         }
     }
 }
