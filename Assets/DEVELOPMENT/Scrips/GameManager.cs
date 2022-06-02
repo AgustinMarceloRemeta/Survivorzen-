@@ -52,12 +52,12 @@ public class GameManager : MonoBehaviour
     {
         Transition.SetBool("End", true);
         Time.timeScale = 0;
+        PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
         SaveLevel();
     }
 
     public void SaveLevel()
-    {
-        PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
+    {     
         FindObjectOfType<PleyerHealth>().SaveHealth();
         FindObjectOfType<AimController>().SaveGuns();
         PlayerPrefs.SetFloat("Money", money);
