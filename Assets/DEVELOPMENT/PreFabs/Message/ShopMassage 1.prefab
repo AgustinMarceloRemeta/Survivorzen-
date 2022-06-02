@@ -166,7 +166,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Now you can use your money in the shop inside the pause menu
+  m_text: Now you can spend your money at the shop inside the pause menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 121b327bc59f1174dba867b551a5e3bf, type: 2}
   m_sharedMaterial: {fileID: -4858292644979777518, guid: 121b327bc59f1174dba867b551a5e3bf, type: 2}
