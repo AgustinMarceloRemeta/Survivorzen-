@@ -88,6 +88,7 @@ MonoBehaviour:
   BulletPref: {fileID: 110074, guid: 6eb29af9fa551554c8ca757f8f3f2330, type: 3}
   Gun: {fileID: 932919084218950188}
   ShootImpulse: 8
+  ResponseTime: 0.5
 --- !u!1 &8156072396422956325
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,6 +64,7 @@ MonoBehaviour:
   dieClip: {fileID: 8300000, guid: 58f5e3e05dbf79644ac49020e8d0dd28, type: 3}
   hitClip: {fileID: 8300000, guid: a73298df202728c48ae02b561959ae29, type: 3}
   weapon: {fileID: 582333207}
+  ResponseTime: 0.5
 --- !u!195 &1707567584
 NavMeshAgent:
   m_ObjectHideFlags: 0

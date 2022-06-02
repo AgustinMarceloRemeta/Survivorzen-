@@ -9,13 +9,13 @@ public class EnemyDistance : Enemy
     [SerializeField] protected GameObject BulletPref;
     [SerializeField] protected Transform Gun;
     [SerializeField] protected float ShootImpulse;
-
+    [SerializeField] private float ResponseTime;
     protected int animattack;
     public override void Start()
     {
         base.Start();
         animattack = Animator.StringToHash("Shoot");
-        InvokeRepeating("Mov", 0, 0.1f);
+        InvokeRepeating("Mov", 0, ResponseTime);
 
     }
 

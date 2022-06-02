@@ -6,11 +6,12 @@ public class EnemyMelee : Enemy
 {
     protected int animattack;
     [SerializeField]protected BoxCollider weapon;
+    [SerializeField] float ResponseTime;
     public override void Start()
     {
         base.Start();
         animattack = Animator.StringToHash("Melee");
-        InvokeRepeating("Mov", 0, 0.1f);
+        InvokeRepeating("Mov", 0, ResponseTime);
         weapon.enabled = false;
     }
 
