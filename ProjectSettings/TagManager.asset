@@ -12,6 +12,7 @@ TagManager:
   - Lazer
   - EndLevel
   - ShopMassage
+  - PlayerFollowCamera
   layers:
   - Default
   - TransparentFX
