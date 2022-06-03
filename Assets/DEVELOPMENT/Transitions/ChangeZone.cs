@@ -12,7 +12,8 @@ public class ChangeZone : MonoBehaviour
             PlayerPrefs.SetInt("Zone", PlayerPrefs.GetInt("Zone") + 1);
             ZoneOn.SetActive(true);
             Destroy(ZoneOff);
-            FindObjectOfType<GameManager>().SaveLevel();          
+            FindObjectOfType<GameManager>().SaveLevel();
+            FindObjectOfType<InterstitialAd>().ShowAd();
             Destroy(gameObject);
         }
     }
