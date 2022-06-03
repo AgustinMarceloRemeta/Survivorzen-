@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
         SaveLevel();
+        
     }
 
     public void SaveLevel()

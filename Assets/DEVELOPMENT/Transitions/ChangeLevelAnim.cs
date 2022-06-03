@@ -8,7 +8,19 @@ public class ChangeLevelAnim : StateMachineBehaviour
     [SerializeField] bool NextLevel, Menu;
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       if(NextLevel) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-       if(Menu) SceneManager.LoadScene(0);
+        if (NextLevel) 
+        {
+            FindObjectOfType<InterstitialAd>().ShowAd();
+            AudioListener.pause = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+        }
+        if (Menu) 
+        {
+            
+            FindObjectOfType<InterstitialAd>().ShowAd();
+            AudioListener.pause = true;
+            SceneManager.LoadScene(0);
+        }
+        
     }
 }
