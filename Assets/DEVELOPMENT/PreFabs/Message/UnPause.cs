@@ -9,6 +9,7 @@ public class UnPause : MonoBehaviour
     public void unPause()
     {
         Time.timeScale = 1;
+        FindObjectOfType<AimController>().gunActive.AudioSource.UnPause();
         
     }
     public void DestroyMessage()
