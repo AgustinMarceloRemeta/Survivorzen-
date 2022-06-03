@@ -1834,12 +1834,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 880338360562931805, guid: 745a6638d976f504cba24c7a5a6271de, type: 3}
       propertyPath: EnemysToChange.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 880338360562931805, guid: 745a6638d976f504cba24c7a5a6271de, type: 3}
       propertyPath: EnemysToChange.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1105253191}
     - target: {fileID: 880338360562931805, guid: 745a6638d976f504cba24c7a5a6271de, type: 3}
       propertyPath: EnemysToChange.Array.data[1]
       value: 
@@ -1863,7 +1863,7 @@ PrefabInstance:
     - target: {fileID: 880338360562931805, guid: 745a6638d976f504cba24c7a5a6271de, type: 3}
       propertyPath: EnemysToChange.Array.data[6]
       value: 
-      objectReference: {fileID: 1105253191}
+      objectReference: {fileID: 0}
     - target: {fileID: 2485630792149742169, guid: 745a6638d976f504cba24c7a5a6271de, type: 3}
       propertyPath: m_Enabled
       value: 0

@@ -32,6 +32,7 @@ public class FixedJoystick : Joystick, IPointerDownHandler, IDragHandler, IPoint
         {
             lazer.aimLineDeactivate();
         }
+        /*
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             aiming = false;
@@ -39,7 +40,7 @@ public class FixedJoystick : Joystick, IPointerDownHandler, IDragHandler, IPoint
             handle.anchoredPosition = Vector2.zero;
             lazer.aimLineDeactivate();
         }
-
+        */
     }
     public override void OnPointerDown(PointerEventData eventData)
     {

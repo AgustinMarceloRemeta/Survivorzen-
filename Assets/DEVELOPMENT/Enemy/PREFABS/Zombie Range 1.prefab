@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nav: {fileID: 0}
-  DistanceToPursue: 7
+  DistanceToPursue: 10
   DistanceToStop: 5
   damage: 10
   isAlive: 1
