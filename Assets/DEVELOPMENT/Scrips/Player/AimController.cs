@@ -186,7 +186,7 @@ public class AimController : MonoBehaviour
     public void shotAnim()
     {
         bool cancel = aiming && fixedJoystick.Direction.magnitude < sensivility;
-        if (!canshot || cancel) return;
+        if (!canshot || gunActive.bullets <=0 ||cancel) return;
         _controller.shooting = true;
         _animator.SetLayerWeight(1, 1f);
         _animator.SetBool(_animShot, true);
