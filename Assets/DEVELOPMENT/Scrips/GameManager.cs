@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<AimController>().SaveGuns();
         PlayerPrefs.SetFloat("Money", money);
         store.SaveSliders();
+        store.SaveUpgrades();
         PlayerPrefs.Save();
     }
 
