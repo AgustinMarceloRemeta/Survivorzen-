@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI moneyTxt;
     [SerializeField] Animator Transition;
-    [SerializeField] Store store;
+    [SerializeField] protected Store store;
     public float money;
 
     public virtual void Start()
