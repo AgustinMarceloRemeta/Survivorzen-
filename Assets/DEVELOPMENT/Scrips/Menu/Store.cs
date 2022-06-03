@@ -35,7 +35,7 @@ public class Store : MonoBehaviour
                 {
                     if (Sliders[Id].value >= 3) return;
                     Sliders[Id].value++;
-                    Rifle.damage += 10;
+                    Rifle.damage += 12.5f;
                     Manager.DownScore(Price[Id]);
                     Price[Id] = Price[Id] * PriceX;
                     AsignText();
@@ -51,7 +51,7 @@ public class Store : MonoBehaviour
                 {
                     if (Sliders[Id].value >= 3) return;
                     Sliders[Id].value++;
-                    Shotgun.damage += 5;
+                    Shotgun.damage += 10;
                     Manager.DownScore(Price[Id]);
                     Price[Id] = Price[Id] * PriceX;
                     AsignText();
