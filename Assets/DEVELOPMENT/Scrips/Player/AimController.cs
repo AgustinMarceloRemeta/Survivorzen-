@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -93,22 +94,24 @@ public class AimController : MonoBehaviour
         else if (fixedJoystick.Direction.magnitude < sensivility && PlayerPrefs.GetInt("AimAssist", 0) == 1)
         {
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, gunActive.fireDistance, EnemyLayer);
-            
+           
             if (colliderArray.Length == 0) return;
-            float minDistance = 0;
+            float minDistance = (transform.position - colliderArray[0].transform.position).sqrMagnitude;
             int enemytarget = 0;
-            for (int i = 0; i < colliderArray.Length; i++)
+            for (int i = 1; i < colliderArray.Length; i++)
             {
-                float enemyDistance = Vector3.Distance(transform.position, colliderArray[i].transform.position);
+                float enemyDistance = (transform.position - colliderArray[i].transform.position).sqrMagnitude;
                 if (enemyDistance < minDistance)
                 {
                     minDistance = enemyDistance;
                     enemytarget = i;
                 }
             }
+            
+            //var orderedByProximity = colliderArray.OrderBy(c => (transform.position - c.transform.position).sqrMagnitude).ToArray();
             Vector3 targetDirection = colliderArray[enemytarget].transform.position - transform.position;
             float assistAngle = Vector2.SignedAngle(new Vector2(targetDirection.x, targetDirection.z), new Vector2(transform.forward.x, transform.forward.z));
-            Debug.Log(assistAngle);
+            //Debug.Log(assistAngle);
             if (assistAngle > -100 && assistAngle <= 100) target.localPosition = RotateVector3(target.localPosition,assistAngle);
             else
             {
