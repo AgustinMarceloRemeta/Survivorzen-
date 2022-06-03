@@ -17,6 +17,7 @@ public class UnPause : MonoBehaviour
     }
     public void exit()
     {
+        FindObjectOfType<InterstitialAd>().ShowAd();
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }

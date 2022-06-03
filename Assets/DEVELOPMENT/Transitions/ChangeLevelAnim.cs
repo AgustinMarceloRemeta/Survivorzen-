@@ -11,14 +11,12 @@ public class ChangeLevelAnim : StateMachineBehaviour
         if (NextLevel) 
         {
             FindObjectOfType<InterstitialAd>().ShowAd();
-            AudioListener.pause = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
         }
         if (Menu) 
         {
             
             FindObjectOfType<InterstitialAd>().ShowAd();
-            AudioListener.pause = true;
             SceneManager.LoadScene(0);
         }
         

@@ -10653,7 +10653,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   canPush: 0
-  strength: 1.1
+  strength: 0.59
 --- !u!114 &4820940803806905638
 MonoBehaviour:
   m_ObjectHideFlags: 0
