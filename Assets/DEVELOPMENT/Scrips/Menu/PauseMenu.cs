@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
         camPos.x += 3.5f;
         cameraT.position = camPos;
         Time.timeScale = 1;
+        FindObjectOfType<AimController>().gunActive.AudioSource.UnPause();
     }
     public void pauseBtn()
     {
@@ -21,6 +22,7 @@ public class PauseMenu : MonoBehaviour
         camPos.x -= 3.5f;
         cameraT.position = camPos;
         Time.timeScale = 0;
+        FindObjectOfType<AimController>().gunActive.AudioSource.Pause();
     }
     public void exit()
     {
