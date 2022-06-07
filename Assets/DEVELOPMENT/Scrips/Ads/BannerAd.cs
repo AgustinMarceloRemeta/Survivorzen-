@@ -23,9 +23,9 @@ public class BannerAd : MonoBehaviour
         _adUnitId = _androidAdUnitId;
 #endif
 
-     // Set the banner position:
-        Advertisement.Banner.SetPosition(_bannerPosition);
 
+        Advertisement.Banner.SetPosition(_bannerPosition);
+        
         StartCoroutine(ShowBannerWhenInitialized());
     }
 
