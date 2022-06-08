@@ -2466,7 +2466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1231274967633902468, guid: c153c5305a2fa6d46b6c6c7e4ce9214a, type: 3}
       propertyPath: Spawners.Array.data[0].y
-      value: -32.4733
+      value: -31.99473
       objectReference: {fileID: 0}
     - target: {fileID: 1231274967633902468, guid: c153c5305a2fa6d46b6c6c7e4ce9214a, type: 3}
       propertyPath: Spawners.Array.data[0].z
@@ -2478,7 +2478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1231274967633902468, guid: c153c5305a2fa6d46b6c6c7e4ce9214a, type: 3}
       propertyPath: Spawners.Array.data[1].y
-      value: -32.4733
+      value: -31.99473
       objectReference: {fileID: 0}
     - target: {fileID: 1231274967633902468, guid: c153c5305a2fa6d46b6c6c7e4ce9214a, type: 3}
       propertyPath: Spawners.Array.data[1].z
@@ -2490,7 +2490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1231274967633902468, guid: c153c5305a2fa6d46b6c6c7e4ce9214a, type: 3}
       propertyPath: Spawners.Array.data[2].y
-      value: -32.4733
+      value: -31.994738
       objectReference: {fileID: 0}
     - target: {fileID: 1231274967633902468, guid: c153c5305a2fa6d46b6c6c7e4ce9214a, type: 3}
       propertyPath: Spawners.Array.data[2].z
