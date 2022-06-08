@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class PlayMenu : MonoBehaviour
 {
     public OptionsMenu OptionMenu;
+
+    private void Start()
+    {
+        OptionMenu.LoadSettings();
+    }
     public void Continue()
     {
         int level = PlayerPrefs.GetInt("Level", 0);
