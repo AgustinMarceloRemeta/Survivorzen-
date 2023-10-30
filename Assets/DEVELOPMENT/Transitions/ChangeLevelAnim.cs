@@ -10,7 +10,6 @@ public class ChangeLevelAnim : StateMachineBehaviour
     {
         if (NextLevel) 
         {
-            FindObjectOfType<InterstitialAd>().ShowAd();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
         }
         if (Menu) 
